@@ -79,12 +79,12 @@ export default function Home() {
         <div className="text-center space-y-6">
           <div className="space-y-3">
             <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 font-light">
-              Software Engineer and App / Web Developer
+              App Developer
             </p>
           </div>
           
           <p className="text-base md:text-lg text-gray-500 dark:text-gray-400 max-w-md mx-auto leading-relaxed">
-            Learning Computer Science since 6th grade, have deep understanding about Programming and overall technology. Passionate about learning new skills and improving existing ones to deliver high-quality solutions.
+            App developer, with years of experience. Start learning when I was in 6th grade. Passionate to learn new technology and improve my skills.
           </p>
         </div>
       </section>
