@@ -87,11 +87,6 @@ export default function Home() {
       {/* Hero Section */}
       <section className="flex items-start justify-center pt-24 md:pt-32 pb-16 w-full px-4 min-h-[40vh]">
         <div className="text-center space-y-6">
-          <Reveal>
-            <h1 className="text-6xl md:text-7xl font-semibold text-black dark:text-white tracking-tight">
-              Fahrel
-            </h1>
-          </Reveal>
 
           <Reveal>
             <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 font-light">
