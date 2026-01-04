@@ -16,6 +16,19 @@ export default function Home() {
         },
       ],
     },
+      {
+      title: "Summarizeit AI",
+      description:
+        "SummarizeIt AI is an application that helps users to summarize long texts and articles. Built with Next.js and Tailwind CSS.",
+      tags: ["Next.js", "TypeScript", "Tailwind CSS"],
+      link: "https://summarizeitai.vercel.app/",
+      documentation: [
+        {
+          label: "Documentation (Youtube)",
+          url: "https://youtu.be/umY26Vy3LP0?si=sr8ucTjwLWmq1Qmm",
+        },
+      ],
+    },
   ];
 
   // Certifications data
