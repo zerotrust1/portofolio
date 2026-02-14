@@ -16,6 +16,18 @@ export const metadata: Metadata = {
   title: "Fahrel | Developer",
   description:
     "Portfolio of Fahrel - Showcasing projects, certifications, and skills.",
+  openGraph: {
+    title: "Fahrel | Developer",
+    description:
+      "Portfolio of Fahrel - Showcasing projects, certifications, and skills.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Fahrel | Developer",
+    description:
+      "Portfolio of Fahrel - Showcasing projects, certifications, and skills.",
+  },
 };
 
 export default function RootLayout({
