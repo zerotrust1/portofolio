@@ -1,10 +1,141 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
+import Link from "next/link";
 import Reveal from "../components/Reveal";
+import { X } from "lucide-react";
+import { certGroups } from "../data/certGroups";
+
+const projects = [
+  {
+    title: "Calmflow",
+    description:
+      "A full-featured meditation and mindfulness application designed to help users manage stress and improve mental wellness. Features guided meditation sessions, breathing exercises, and progress tracking with an intuitive interface for a seamless meditation experience.",
+    longDescription:
+      "Calmflow provides a comprehensive wellness platform with curated meditation sessions, customizable timers, and progress analytics. The app features a beautiful dark-mode UI, offline functionality, and personalized recommendations based on user preferences.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "React", "State Management"],
+    link: "https://calm-flow.vercel.app/",
+    features: ["Guided Meditations", "Progress Tracking", "Customizable Timers", "Offline Access"],
+    documentation: [
+      {
+        label: "View Demo (YouTube)",
+        url: "https://youtu.be/wqaTrk16KCU?si=kpBtEoqBykAgOwvf",
+      },
+      {
+        label: "Source Code",
+        url: "https://github.com/zerotrust1/CalmFlow",
+      },
+    ],
+  },
+  {
+    title: "SummarizeIt AI",
+    description:
+      "An intelligent text summarization tool powered by AI that transforms lengthy articles and documents into concise, meaningful summaries. Perfect for researchers, students, and professionals who need to process information quickly and efficiently.",
+    longDescription:
+      "SummarizeIt AI uses advanced natural language processing to extract key information and generate accurate summaries. Supports multiple document formats, adjustable summary lengths, and one-click copying for productivity.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "AI/ML", "API Integration"],
+    link: "https://summarizeitai.vercel.app/",
+    features: ["AI-Powered Summarization", "Multiple Formats", "Adjustable Length", "Quick Copy"],
+    documentation: [
+      {
+        label: "View Demo (YouTube)",
+        url: "https://youtu.be/umY26Vy3LP0?si=sr8ucTjwLWmq1Qmm",
+      },
+      {
+        label: "Source Code",
+        url: "https://github.com/zerotrust1/Summarizeit",
+      },
+    ],
+  },
+];
+
+type Project = typeof projects[0];
 
 export default function Home() {
   const [activeRole, setActiveRole] = React.useState<"developer" | "cybersecurity">("developer");
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  const ProjectModal = ({ project, onClose }: { project: Project | null; onClose: () => void }) => {
+    if (!project) return null;
+
+    return (
+      <>
+        <style>{`
+          @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+          @keyframes scaleIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+          .animate-fade-in { animation: fadeIn 0.15s ease-out; }
+          .animate-scale-in { animation: scaleIn 0.2s ease-out; }
+        `}</style>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fade-in">
+          <div className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-white dark:bg-gray-900 rounded-2xl p-6 md:p-8 animate-scale-in">
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors z-10"
+            aria-label="Close modal"
+          >
+            <X className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+          </button>
+
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-3xl font-bold text-black dark:text-white mb-2">{project.title}</h3>
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 dark:text-blue-400 hover:underline text-sm inline-flex items-center gap-1"
+              >
+                Visit Live Project <span>↗</span>
+              </a>
+            </div>
+
+            <div className="flex flex-wrap gap-2">
+              {project.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="px-3 py-1 text-xs bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-full font-medium"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{project.longDescription}</p>
+
+            <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
+              <h4 className="font-semibold text-gray-900 dark:text-white mb-3">Features</h4>
+              <ul className="space-y-2">
+                {project.features.map((feature, idx) => (
+                  <li key={idx} className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
+                    <span className="w-1.5 h-1.5 bg-black dark:bg-white rounded-full flex-shrink-0 mt-1.5" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
+              <h4 className="font-semibold text-gray-900 dark:text-white mb-3">Resources</h4>
+              <div className="flex flex-wrap gap-3">
+                {project.documentation.map((doc, docIndex) => (
+                  <a
+                    key={docIndex}
+                    href={doc.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 text-sm bg-black dark:bg-white text-white dark:text-black rounded-lg hover:opacity-80 active:scale-95 transition-all duration-200"
+                  >
+                    {doc.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </>
+    );
+  };
 
   const roles = {
     developer: {
@@ -16,49 +147,6 @@ export default function Home() {
       summary: "Cybersecurity professional focused on protecting digital assets and implementing secure practices. Certified in Google Cybersecurity with expertise in threat analysis.",
     },
   };
-
-  const projects = [
-    {
-      title: "Calmflow",
-      description:
-        "A full-featured meditation and mindfulness application designed to help users manage stress and improve mental wellness. Features guided meditation sessions, breathing exercises, and progress tracking with an intuitive interface for a seamless meditation experience.",
-      longDescription:
-        "Calmflow provides a comprehensive wellness platform with curated meditation sessions, customizable timers, and progress analytics. The app features a beautiful dark-mode UI, offline functionality, and personalized recommendations based on user preferences.",
-      tags: ["Next.js", "TypeScript", "Tailwind CSS", "React", "State Management"],
-      link: "https://calm-flow.vercel.app/",
-      features: ["Guided Meditations", "Progress Tracking", "Customizable Timers", "Offline Access"],
-      documentation: [
-        {
-          label: "View Demo (YouTube)",
-          url: "https://youtu.be/wqaTrk16KCU?si=kpBtEoqBykAgOwvf",
-        },
-        {
-          label: "Source Code",
-          url: "https://github.com/zerotrust1",
-        },
-      ],
-    },
-    {
-      title: "SummarizeIt AI",
-      description:
-        "An intelligent text summarization tool powered by AI that transforms lengthy articles and documents into concise, meaningful summaries. Perfect for researchers, students, and professionals who need to process information quickly and efficiently.",
-      longDescription:
-        "SummarizeIt AI uses advanced natural language processing to extract key information and generate accurate summaries. Supports multiple document formats, adjustable summary lengths, and one-click copying for productivity.",
-      tags: ["Next.js", "TypeScript", "Tailwind CSS", "AI/ML", "API Integration"],
-      link: "https://summarizeitai.vercel.app/",
-      features: ["AI-Powered Summarization", "Multiple Formats", "Adjustable Length", "Quick Copy"],
-      documentation: [
-        {
-          label: "View Demo (YouTube)",
-          url: "https://youtu.be/umY26Vy3LP0?si=sr8ucTjwLWmq1Qmm",
-        },
-        {
-          label: "Source Code",
-          url: "https://github.com/zerotrust1",
-        },
-      ],
-    },
-  ];
 
   // Certifications data
   const certifications = [
@@ -183,67 +271,35 @@ export default function Home() {
             <h3 className="text-4xl md:text-5xl font-semibold text-black dark:text-white mb-12">Projects</h3>
           </Reveal>
 
-          <div className="space-y-8">
+          <div className="space-y-4">
             {projects.slice(0, 2).map((project, index) => (
               <Reveal key={index} className="block">
-                <div className="group p-6 md:p-8 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-600 transition-all duration-300 hover:bg-gray-50 dark:hover:bg-gray-900/50">
-                  <div className="space-y-5">
-                    {/* Title and Link */}
-                    <div>
-                      <div className="flex items-start justify-between gap-4">
-                        <div>
-                          <h4 className="text-2xl md:text-3xl font-semibold text-black dark:text-white group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
-                            {project.title}
-                          </h4>
-                          <a
-                            href={project.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-sm text-blue-600 dark:text-blue-400 hover:underline mt-2 inline-flex items-center gap-1"
-                          >
-                            Visit Live Project <span>↗</span>
-                          </a>
-                        </div>
-                      </div>
+                <div className="group p-4 md:p-5 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-600 transition-all duration-300 hover:bg-gray-50 dark:hover:bg-gray-900/50">
+                  <div className="space-y-3">
+                    <div className="flex items-start justify-between gap-4">
+                      <h4 className="text-xl md:text-2xl font-semibold text-black dark:text-white group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors flex-1 cursor-pointer">
+                        {project.title}
+                      </h4>
+                      <button
+                        onClick={() => setSelectedProject(project)}
+                        className="flex-shrink-0 px-3 py-1.5 text-sm bg-black dark:bg-white text-white dark:text-black rounded-lg hover:opacity-85 active:scale-95 transition-all duration-200"
+                      >
+                        View Details
+                      </button>
                     </div>
 
-                    {/* Main Description */}
-                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                    <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
                       {project.description}
                     </p>
 
-                    {/* Tech Stack */}
-                    <div>
-                      <h5 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Tech Stack</h5>
-                      <div className="flex flex-wrap gap-2">
-                        {project.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="px-3 py-1 text-xs bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-full font-medium"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Documentation Links */}
-                    <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
-                      <p className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">Resources</p>
-                      <div className="flex flex-wrap gap-3">
-                        {project.documentation.map((doc, docIndex) => (
-                          <a
-                            key={docIndex}
-                            href={doc.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="px-4 py-2 text-sm bg-black dark:bg-white text-white dark:text-black rounded-lg hover:opacity-80 active:scale-95 transition-all duration-200"
-                          >
-                            {doc.label}
-                          </a>
-                        ))}
-                      </div>
-                    </div>
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center gap-1"
+                    >
+                      Visit Live Project <span>↗</span>
+                    </a>
                   </div>
                 </div>
               </Reveal>
@@ -292,6 +348,27 @@ export default function Home() {
                 </div>
               </Reveal>
             ))}
+            {certGroups.map((group) => (
+              <Reveal key={group.slug}>
+                <Link href={`/certifications/${group.slug}`}>
+                  <div className="p-6 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-600 transition-all duration-300 bg-white/50 dark:bg-black/40 cursor-pointer group">
+                    <div className="flex items-start justify-between">
+                      <div className="flex-1 min-w-0">
+                        <h4 className="text-lg font-semibold text-black dark:text-white group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
+                          {group.title}
+                        </h4>
+                        <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                          {group.certifications.length} {group.certifications.length === 1 ? "certificate" : "certificates"}
+                        </p>
+                      </div>
+                      <span className="ml-4 px-3 py-2 text-sm bg-black dark:bg-white text-white dark:text-black rounded-lg hover:opacity-85 transition flex-shrink-0">
+                        Open
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
@@ -314,19 +391,23 @@ export default function Home() {
               <div className="text-center">
                 <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">WhatsApp</p>
                 <a 
-                  href="https://wa.me/+6285861284237"
+                  href="https://wa.me/+6285804182817"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm font-medium text-black dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition"
                 >
-                  +62 858-6128-4237
+                  +62 858-0418-2817
                 </a>
               </div>
             </div>
           </Reveal>
         </div>
-        <p className="mt-3 text-xs text-gray-500 dark:text-gray-400 text-center">© 2025 Fahrel Putra</p>
-      </footer>
-    </div>
-  );
-}
+<p className="mt-3 text-xs text-gray-500 dark:text-gray-400 text-center">© 2026 Fahrel Putra</p>
+       </footer>
+
+       {selectedProject && (
+         <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+       )}
+     </div>
+   );
+ }

@@ -46,6 +46,22 @@ export default function ProjectsPage() {
         },
       ],
     },
+    {
+      title: "CyberProject",
+      description:
+        "Collection of cybersecurity tools and resources for penetration testing, vulnerability assessment, and network security analysis. Designed for ethical hackers and security enthusiasts to enhance their skills and knowledge.",
+      longDescription:
+        "CyberProject provides a comprehensive suite of tools for cybersecurity professionals. It includes penetration testing frameworks, vulnerability scanners, and security analysis utilities to help users identify and mitigate potential threats.",
+      tags: ["Next.js", "TypeScript", "Tailwind CSS", "AI/ML", "API Integration"],
+      link: "https://github.com/zerotrust1/cybersecurity-project",
+      features: ["Penetration Testing", "Vulnerability Assessment", "Network Security Analysis"],
+      documentation: [
+        {
+          label: "Source Code",
+          url: "hhttps://github.com/zerotrust1/cybersecurity-project",
+        },
+      ],
+    },
   ];
 
   return (
@@ -150,7 +166,7 @@ export default function ProjectsPage() {
       {/* Footer */}
       <footer className="w-full px-6 md:px-8 py-6 border-t border-gray-200 dark:border-gray-800 bg-white/50 dark:bg-black/50">
         <div className="max-w-5xl mx-auto text-center text-sm text-gray-600 dark:text-gray-400">
-          <p>© 2025 Fahrel Putra. All rights reserved.</p>
+          <p>© 2026 Fahrel Putra. All rights reserved.</p>
         </div>
       </footer>
     </div>
