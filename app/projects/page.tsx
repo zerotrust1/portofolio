@@ -58,7 +58,7 @@ export default function ProjectsPage() {
       documentation: [
         {
           label: "Source Code",
-          url: "hhttps://github.com/zerotrust1/cybersecurity-project",
+          url: "https://github.com/zerotrust1/cybersecurity-project",
         },
       ],
     },
