@@ -27,4 +27,16 @@ export const certGroups: CertGroup[] = [
       },
     ],
   },
+  {
+    title: "Cisco",
+    slug: "cisco-academy",
+    description: "certifications from Cisco's educational program",
+    certifications: [
+      {
+        title: "Network Addressing and Basic Troubleshooting",
+        date: "2026",
+        url: "https://www.credly.com/badges/1c8eec23-e881-42fa-b4ba-5e4efe5d31a1/linked_in_profile",
+      },
+    ],
+  },
 ];

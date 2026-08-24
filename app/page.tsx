@@ -177,7 +177,7 @@ export default function Home() {
     },
     {
       label: "LinkedIn",
-      url: "https://www.linkedin.com/in/fahrel-putra-131228243/",
+      url: "https://www.linkedin.com/in/fahrelputra/",
       icon: (
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden>
           <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.11 1 2.5 1 4.98 2.12 4.98 3.5zM.24 8.98h4.52V24H.24V8.98zM9.6 8.98h4.34v2.06h.06c.6-1.13 2.06-2.33 4.24-2.33 4.54 0 5.38 2.99 5.38 6.88V24h-4.52v-7.25c0-1.73-.03-3.95-2.41-3.95-2.41 0-2.78 1.88-2.78 3.82V24H9.6V8.98z" />
