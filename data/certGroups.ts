@@ -55,6 +55,20 @@ export const certGroups: CertGroup[] = [
     ],
   },
   {
+    title: "Hack The Box",
+    slug: "hack-the-box",
+    description: "Hands-on offensive & defensive security training on HTB Academy",
+    badge: "HTB Academy",
+    certifications: [
+      {
+        title: "Junior Cybersecurity Analyst",
+        date: "2026",
+        credentialId: "Path ID: 419",
+        url: "https://academy.hackthebox.com/achievement/2973766/path/419",
+      },
+    ],
+  },
+  {
     title: "Anthropic Academy",
     slug: "anthropic-academy",
     description: "AI system architecture, prompt engineering, and LLM foundations",
