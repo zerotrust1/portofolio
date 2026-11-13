@@ -41,22 +41,8 @@ export const certGroups: CertGroup[] = [
     ],
   },
   {
-    title: "Hack The Box",
-    slug: "hack-the-box",
-    description: "Hands-on offensive security laboratories, penetration testing & CTF challenges",
-    badge: "Labs & CTF",
-    certifications: [
-      {
-        title: "Offensive Security & Machine Exploitation",
-        date: "2026",
-        credentialId: "Active Labs & Writeups",
-        url: "https://app.hackthebox.com",
-      },
-    ],
-  },
-  {
-    title: "Cisco Networking Academy",
-    slug: "cisco-academy",
+    title: "Cisco",
+    slug: "cisco",
     description: "Enterprise networking fundamentals, IP addressing, and troubleshooting",
     badge: "Networking",
     certifications: [

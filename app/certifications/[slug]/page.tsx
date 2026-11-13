@@ -8,12 +8,18 @@ export function generateStaticParams() {
     slug: group.slug,
   }));
   params.push({ slug: "google-cybersecurity" });
+  params.push({ slug: "cisco-academy" });
   return params;
 }
 
 export default async function CertGroupPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const group = certGroups.find((g) => g.slug === slug || (slug === "google-cybersecurity" && g.slug === "google"));
+  const group = certGroups.find(
+    (g) =>
+      g.slug === slug ||
+      (slug === "google-cybersecurity" && g.slug === "google") ||
+      (slug === "cisco-academy" && g.slug === "cisco")
+  );
 
   if (!group) {
     return (
