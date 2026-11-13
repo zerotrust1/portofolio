@@ -43,14 +43,32 @@ export const certGroups: CertGroup[] = [
   {
     title: "Cisco",
     slug: "cisco",
-    description: "Enterprise networking fundamentals, IP addressing, and troubleshooting",
-    badge: "Networking",
+    description: "Enterprise networking, network automation, addressing, and infrastructure diagnostics",
+    badge: "4 Credentials",
     certifications: [
+      {
+        title: "Understanding Cisco Network Automation Essentials (DEVNAE)",
+        date: "2026",
+        credentialId: "Credly Badge",
+        url: "https://www.credly.com/badges/e3f0960b-a518-497d-9311-c32d782c0398/linked_in_profile",
+      },
+      {
+        title: "Network Technician Career Path",
+        date: "2026",
+        credentialId: "Credly Badge",
+        url: "https://www.credly.com/badges/2ac73c3f-245c-429c-8d79-553767eea348/linked_in_profile",
+      },
       {
         title: "Network Addressing and Basic Troubleshooting",
         date: "2026",
         credentialId: "Credly Badge",
         url: "https://www.credly.com/badges/1c8eec23-e881-42fa-b4ba-5e4efe5d31a1/linked_in_profile",
+      },
+      {
+        title: "Networking Basics",
+        date: "2026",
+        credentialId: "ID: c392b3d1-d6e4-4134-8c11-161354fecb94",
+        url: "https://www.netacad.com",
       },
     ],
   },
