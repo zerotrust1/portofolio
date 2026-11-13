@@ -9,27 +9,6 @@ import { certGroups } from "../data/certGroups";
 
 const projects = [
   {
-    title: "Cipher Identifier",
-    description:
-      "An automated cryptanalysis and classical cipher detection web application. It detects and cracks common encodings and classical ciphers in real-time with statistical English frequency scoring.",
-    longDescription:
-      "Cipher Identifier is an open-source real-time cryptanalysis tool designed for security analysts and CTF competitors. It leverages statistical English frequency scoring to accurately identify and crack classical ciphers (Caesar, Atbash, Affine, Bacon, Vigenère) and common encodings (Base64, Base32, Hex, Binary, Morse Code) with confidence scores.",
-    tags: ["Next.js 16", "TypeScript", "Tailwind CSS 4", "Cybersecurity", "Cryptanalysis"],
-    link: "https://github.com/zerotrust1/cybersecurity-project",
-    features: [
-      "Real-time Cipher Cracking",
-      "Encoding Detection (Base64, Hex, Binary, Morse)",
-      "Classical Cipher Analysis (Caesar, Atbash, Vigenère)",
-      "Statistical English Frequency Scoring",
-    ],
-    documentation: [
-      {
-        label: "Source Code (GitHub)",
-        url: "https://github.com/zerotrust1/cybersecurity-project",
-      },
-    ],
-  },
-  {
     title: "Nocturne",
     description:
       "AI-automated night-shift Network Operations Center (NOC) monitoring system tailored for Internet Service Providers (ISPs), parsing network alerts, routing anomalies, and fiber outage events.",
@@ -47,6 +26,48 @@ const projects = [
       {
         label: "Source Code (GitHub)",
         url: "https://github.com/rel7z/nocturne",
+      },
+    ],
+  },
+  {
+    title: "CamouDesk",
+    description:
+      "Open-source macOS anti-detect browser profile manager powered by Camoufox and PyWebView for privacy, fingerprint spoofing, and isolated multi-profile management.",
+    longDescription:
+      "CamouDesk is an advanced macOS application designed for privacy-conscious developers and security researchers. It leverages the Camoufox anti-detect engine with PyWebView to provide hardware fingerprint spoofing, isolated cookie and session storage, and seamless multi-profile browser management.",
+    tags: ["macOS", "Python", "Anti-Detect", "Camoufox", "Privacy"],
+    link: "https://github.com/rel7z/camoudesk",
+    features: [
+      "Hardware Fingerprint Spoofing",
+      "Isolated Profile Management",
+      "Camoufox Browser Engine",
+      "Native macOS GUI Interface",
+    ],
+    documentation: [
+      {
+        label: "Source Code (GitHub)",
+        url: "https://github.com/rel7z/camoudesk",
+      },
+    ],
+  },
+  {
+    title: "Cipher Identifier",
+    description:
+      "An automated cryptanalysis and classical cipher detection web application. It detects and cracks common encodings and classical ciphers in real-time with statistical English frequency scoring.",
+    longDescription:
+      "Cipher Identifier is an open-source real-time cryptanalysis tool designed for security analysts and CTF competitors. It leverages statistical English frequency scoring to accurately identify and crack classical ciphers (Caesar, Atbash, Affine, Bacon, Vigenère) and common encodings (Base64, Base32, Hex, Binary, Morse Code) with confidence scores.",
+    tags: ["Next.js 16", "TypeScript", "Tailwind CSS 4", "Cybersecurity", "Cryptanalysis"],
+    link: "https://github.com/zerotrust1/cybersecurity-project",
+    features: [
+      "Real-time Cipher Cracking",
+      "Encoding Detection (Base64, Hex, Binary, Morse)",
+      "Classical Cipher Analysis (Caesar, Atbash, Vigenère)",
+      "Statistical English Frequency Scoring",
+    ],
+    documentation: [
+      {
+        label: "Source Code (GitHub)",
+        url: "https://github.com/zerotrust1/cybersecurity-project",
       },
     ],
   },
@@ -449,7 +470,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. Featured Projects Section (Top 2: Cipher Identifier & Nocturne) */}
+      {/* 2. Featured Projects Section (Top 2: Nocturne & CamouDesk) */}
       <section className="w-full px-6 md:px-8 py-20 border-t border-gray-200 dark:border-gray-800">
         <div className="max-w-4xl mx-auto">
           <Reveal>
@@ -462,7 +483,7 @@ export default function Home() {
                   Projects
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                  Top offensive security tools and ISP automation systems
+                  Top ISP automation systems and macOS anti-detect utilities
                 </p>
               </div>
               <Link
@@ -474,7 +495,7 @@ export default function Home() {
             </div>
           </Reveal>
 
-          {/* Top 2 Projects Displayed on Homepage */}
+          {/* Top 2 Projects Displayed on Homepage: Nocturne & CamouDesk */}
           <div className="space-y-6">
             {projects.slice(0, 2).map((project, index) => (
               <Reveal key={index} className="block">
@@ -532,7 +553,7 @@ export default function Home() {
           <Reveal className="flex justify-center pt-10">
             <Link href="/projects">
               <button className="flex items-center gap-2 px-8 py-3.5 bg-black dark:bg-white text-white dark:text-black font-semibold rounded-xl hover:opacity-85 active:scale-95 transition-all duration-200">
-                <span>View All 4 Projects</span>
+                <span>View All 5 Projects</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </Link>
@@ -626,12 +647,12 @@ export default function Home() {
               <div className="text-center">
                 <p className="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-1">WhatsApp</p>
                 <a
-                  href="https://wa.me/+6285804182817"
+                  href="https://wa.me/6285143885550"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm font-semibold text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition"
                 >
-                  +62 858-0418-2817
+                  +62 851-4388-5550
                 </a>
               </div>
               <div className="hidden md:block w-px h-8 bg-gray-200 dark:bg-gray-800"></div>

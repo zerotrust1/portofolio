@@ -7,27 +7,6 @@ import Link from "next/link";
 export default function ProjectsPage() {
   const projects = [
     {
-      title: "Cipher Identifier",
-      description:
-        "An automated cryptanalysis and classical cipher detection web application. It detects and cracks common encodings and classical ciphers in real-time with statistical English frequency scoring.",
-      longDescription:
-        "Cipher Identifier is an open-source real-time cryptanalysis tool designed for security analysts and CTF competitors. It leverages statistical English frequency scoring to accurately identify and crack classical ciphers (Caesar, Atbash, Affine, Bacon, Vigenère) and common encodings (Base64, Base32, Hex, Binary, Morse Code) with confidence scores.",
-      tags: ["Next.js 16", "TypeScript", "Tailwind CSS 4", "Cybersecurity", "Cryptanalysis"],
-      link: "https://github.com/zerotrust1/cybersecurity-project",
-      features: [
-        "Real-time Cipher Cracking",
-        "Encoding Detection (Base64, Hex, Binary, Morse)",
-        "Classical Cipher Analysis (Caesar, Atbash, Vigenère)",
-        "Statistical English Frequency Scoring",
-      ],
-      documentation: [
-        {
-          label: "Source Code (GitHub)",
-          url: "https://github.com/zerotrust1/cybersecurity-project",
-        },
-      ],
-    },
-    {
       title: "Nocturne",
       description:
         "AI-automated night-shift Network Operations Center (NOC) monitoring system tailored for Internet Service Providers (ISPs), parsing network alerts, routing anomalies, and fiber outage events.",
@@ -45,6 +24,48 @@ export default function ProjectsPage() {
         {
           label: "Source Code (GitHub)",
           url: "https://github.com/rel7z/nocturne",
+        },
+      ],
+    },
+    {
+      title: "CamouDesk",
+      description:
+        "Open-source macOS anti-detect browser profile manager powered by Camoufox and PyWebView for privacy, fingerprint spoofing, and isolated multi-profile management.",
+      longDescription:
+        "CamouDesk is an advanced macOS application designed for privacy-conscious developers and security researchers. It leverages the Camoufox anti-detect engine with PyWebView to provide hardware fingerprint spoofing, isolated cookie and session storage, and seamless multi-profile browser management.",
+      tags: ["macOS", "Python", "Anti-Detect", "Camoufox", "Privacy"],
+      link: "https://github.com/rel7z/camoudesk",
+      features: [
+        "Hardware Fingerprint Spoofing",
+        "Isolated Profile Management",
+        "Camoufox Browser Engine",
+        "Native macOS GUI Interface",
+      ],
+      documentation: [
+        {
+          label: "Source Code (GitHub)",
+          url: "https://github.com/rel7z/camoudesk",
+        },
+      ],
+    },
+    {
+      title: "Cipher Identifier",
+      description:
+        "An automated cryptanalysis and classical cipher detection web application. It detects and cracks common encodings and classical ciphers in real-time with statistical English frequency scoring.",
+      longDescription:
+        "Cipher Identifier is an open-source real-time cryptanalysis tool designed for security analysts and CTF competitors. It leverages statistical English frequency scoring to accurately identify and crack classical ciphers (Caesar, Atbash, Affine, Bacon, Vigenère) and common encodings (Base64, Base32, Hex, Binary, Morse Code) with confidence scores.",
+      tags: ["Next.js 16", "TypeScript", "Tailwind CSS 4", "Cybersecurity", "Cryptanalysis"],
+      link: "https://github.com/zerotrust1/cybersecurity-project",
+      features: [
+        "Real-time Cipher Cracking",
+        "Encoding Detection (Base64, Hex, Binary, Morse)",
+        "Classical Cipher Analysis (Caesar, Atbash, Vigenère)",
+        "Statistical English Frequency Scoring",
+      ],
+      documentation: [
+        {
+          label: "Source Code (GitHub)",
+          url: "https://github.com/zerotrust1/cybersecurity-project",
         },
       ],
     },
@@ -115,7 +136,7 @@ export default function ProjectsPage() {
                 All Projects
               </h1>
               <p className="text-gray-600 dark:text-gray-400">
-                Explore all of my projects and the technologies used to build them.
+                Explore all of my projects, tools, and the technologies used to build them.
               </p>
             </div>
           </Reveal>
@@ -129,16 +150,21 @@ export default function ProjectsPage() {
                     <div>
                       <div className="flex items-start justify-between gap-4">
                         <div>
-                          <h4 className="text-2xl md:text-3xl font-semibold text-black dark:text-white group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
-                            {project.title}
-                          </h4>
+                          <div className="flex items-center gap-2">
+                            <span className="text-xs font-mono font-bold text-blue-600 dark:text-blue-400">
+                              0{index + 1}
+                            </span>
+                            <h4 className="text-2xl md:text-3xl font-semibold text-black dark:text-white group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
+                              {project.title}
+                            </h4>
+                          </div>
                           <a
                             href={project.link}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-sm text-blue-600 dark:text-blue-400 hover:underline mt-2 inline-flex items-center gap-1"
                           >
-                            Visit Live Project <span>↗</span>
+                            Visit Project <span>↗</span>
                           </a>
                         </div>
                       </div>
