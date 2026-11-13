@@ -143,7 +143,7 @@ export default function ProjectsPage() {
 
           <div className="space-y-8">
             {projects.map((project, index) => (
-              <Reveal key={index} className="block">
+              <Reveal key={index} delay={index * 80} className="block">
                 <div className="group p-6 md:p-8 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-600 transition-all duration-300 hover:bg-gray-50 dark:hover:bg-gray-900/50">
                   <div className="space-y-5">
                     {/* Title and Link */}

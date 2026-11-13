@@ -34,7 +34,7 @@ export default function CertGroupClient({ group }: { group: CertGroup }) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {group.certifications.map((cert, i) => (
-              <Reveal key={i}>
+              <Reveal key={i} delay={i * 80}>
                 <div className="p-6 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-600 transition-all duration-300 bg-white/50 dark:bg-black/40">
                   <div className="flex items-start justify-between">
                     <div>

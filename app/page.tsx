@@ -308,7 +308,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen bg-white dark:bg-black font-sans">
       {/* Navigation Bar */}
       <nav className="flex items-center justify-between px-6 py-4 md:px-8 md:py-6 border-b border-gray-200 dark:border-gray-800 sticky top-0 bg-white dark:bg-black z-50">
-        <Reveal className="inline-block">
+        <Reveal once={true} className="inline-block">
           <Link href="/">
             <h2 className="text-xl font-semibold text-black dark:text-white cursor-pointer">
               Fahrel Putra
@@ -316,7 +316,7 @@ export default function Home() {
           </Link>
         </Reveal>
 
-        <Reveal>
+        <Reveal once={true}>
           <div className="flex items-center gap-2.5">
             {socialLinks.map((social) => (
               <a
@@ -433,7 +433,7 @@ export default function Home() {
           {/* Top 2 Projects Displayed on Homepage: Nocturne & CamouDesk */}
           <div className="space-y-6">
             {projects.slice(0, 2).map((project, index) => (
-              <Reveal key={index} className="block">
+              <Reveal key={index} delay={index * 120} className="block">
                 <div className="group p-6 md:p-7 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-600 transition-all duration-300 hover:bg-gray-50 dark:hover:bg-gray-900/50">
                   <div className="space-y-4">
                     <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
@@ -516,8 +516,8 @@ export default function Home() {
           </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {certGroups.map((group) => (
-              <Reveal key={group.slug}>
+            {certGroups.map((group, index) => (
+              <Reveal key={group.slug} delay={(index % 2) * 100}>
                 <Link href={`/certifications/${group.slug}`}>
                   <div className="p-6 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-600 transition-all duration-300 bg-white dark:bg-black/40 cursor-pointer group h-full flex flex-col justify-between">
                     <div>
@@ -591,7 +591,7 @@ export default function Home() {
           {/* Expanded Experience Cards */}
           <div className="space-y-6">
             {experiences.map((exp, index) => (
-              <Reveal key={index} className="block">
+              <Reveal key={index} delay={index * 80} className="block">
                 <div className="p-6 md:p-7 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-black/40 hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-300">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-gray-100 dark:border-gray-800/80">
                     <div>
