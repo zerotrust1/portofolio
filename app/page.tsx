@@ -634,7 +634,7 @@ export default function Home() {
             {experiences.map((exp, index) => (
               <Reveal key={index} delay={index * 80} className="block relative">
                 {/* Timeline Node Marker */}
-                <div className="absolute -left-[33px] sm:-left-[41px] top-4 z-10 flex items-center justify-center">
+                <div className="absolute -left-[33px] sm:-left-[41px] top-5 z-10 flex items-center justify-center">
                   {exp.isCurrent ? (
                     <span className="relative flex h-4 w-4 items-center justify-center">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
