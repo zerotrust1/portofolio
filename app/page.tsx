@@ -261,10 +261,10 @@ export default function Home() {
       icon: Network,
     },
     cybersecurity: {
-      title: "Penetration Tester",
+      title: "Cybersecurity Expert",
       badge: "JNCIA-SEC & Google Cybersecurity",
       summary:
-        "Offensive security researcher with 5+ years of practical research. Certified in JNCIA-SEC, Google Cybersecurity, and HTB Academy Junior Cybersecurity Analyst, specializing in perimeter defense, OWASP Top 10 pentesting, and responsible vulnerability disclosure.",
+        "Cybersecurity Expert specializing in perimeter defense, network security architecture, vulnerability assessment, and responsible disclosure. Certified in JNCIA-SEC, Google Cybersecurity, and HTB Academy Junior Cybersecurity Analyst.",
       icon: ShieldCheck,
     },
     developer: {
@@ -403,7 +403,7 @@ export default function Home() {
                 }`}
               >
                 <ShieldCheck className="w-4 h-4" />
-                Penetration Tester
+                Cybersecurity Expert
               </button>
               <button
                 onClick={() => setActiveRole("developer")}

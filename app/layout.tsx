@@ -13,20 +13,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Fahrel Putra | Network Engineer & Penetration Tester",
+  title: "Fahrel Putra | Network Engineer & Cybersecurity Expert",
   description:
-    "Portfolio of Mochammad Fahrel Putra Ardiansyah — ISP Network Engineer & Penetration Tester based in Indonesia. Certified JNCIA-SEC & Google Cybersecurity.",
+    "Portfolio of Mochammad Fahrel Putra Ardiansyah — ISP Network Engineer & Cybersecurity Expert based in Indonesia. Certified JNCIA-SEC & Google Cybersecurity.",
   openGraph: {
-    title: "Fahrel Putra | Network Engineer & Penetration Tester",
+    title: "Fahrel Putra | Network Engineer & Cybersecurity Expert",
     description:
-      "Portfolio of Mochammad Fahrel Putra Ardiansyah — ISP Network Engineer & Penetration Tester based in Indonesia.",
+      "Portfolio of Mochammad Fahrel Putra Ardiansyah — ISP Network Engineer & Cybersecurity Expert based in Indonesia.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fahrel Putra | Network Engineer & Penetration Tester",
+    title: "Fahrel Putra | Network Engineer & Cybersecurity Expert",
     description:
-      "Portfolio of Mochammad Fahrel Putra Ardiansyah — ISP Network Engineer & Penetration Tester based in Indonesia.",
+      "Portfolio of Mochammad Fahrel Putra Ardiansyah — ISP Network Engineer & Cybersecurity Expert based in Indonesia.",
   },
 };
 
