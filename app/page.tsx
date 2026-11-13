@@ -144,8 +144,8 @@ const experiences = [
     role: "Systems Administrator & Security Associate",
     company: "PT Transformasi Data Digital (Hostdata.id)",
     period: "April 2026 – May 2026",
-    location: "Solo / Remote",
-    type: "Contract",
+    location: "Surakarta / Remote",
+    type: "Full-time",
     highlights: [
       "Hardened 50+ Linux hosting servers against automated brute-force attacks and credential stuffing using fail2ban, iptables, and SSH key policies.",
       "Triaged anomalous traffic and suspected brute-force attacks by auditing Linux syslog, auth.log, and Nginx web server access logs under strict SLAs.",
