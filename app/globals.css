@@ -24,3 +24,46 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Hover labels around the cybersecurity shield (HTML, not SVG text — SVG text gets clipped). */
+.shield-label {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 20;
+  white-space: nowrap;
+  pointer-events: none;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #7c3aed;
+  opacity: 0.7;
+  transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-72px)
+    rotate(calc(-1 * var(--angle)));
+  transition:
+    opacity 0.35s ease,
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  .shield-label {
+    color: #c4b5fd;
+  }
+}
+
+.shield-deco:hover .shield-label,
+.shield-deco:focus-within .shield-label,
+.shield-deco:focus .shield-label {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-96px)
+    rotate(calc(-1 * var(--angle)));
+}
+
+@media (hover: none) {
+  .shield-label {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-88px)
+      rotate(calc(-1 * var(--angle)));
+  }
+}
+

@@ -7,6 +7,48 @@ import Link from "next/link";
 export default function ProjectsPage() {
   const projects = [
     {
+      title: "Cipher Identifier",
+      description:
+        "An automated cryptanalysis and classical cipher detection web application. It detects and cracks common encodings and classical ciphers in real-time with statistical English frequency scoring.",
+      longDescription:
+        "Cipher Identifier is an open-source real-time cryptanalysis tool designed for security analysts and CTF competitors. It leverages statistical English frequency scoring to accurately identify and crack classical ciphers (Caesar, Atbash, Affine, Bacon, Vigenère) and common encodings (Base64, Base32, Hex, Binary, Morse Code) with confidence scores.",
+      tags: ["Next.js 16", "TypeScript", "Tailwind CSS 4", "Cybersecurity", "Cryptanalysis"],
+      link: "https://github.com/zerotrust1/cybersecurity-project",
+      features: [
+        "Real-time Cipher Cracking",
+        "Encoding Detection (Base64, Hex, Binary, Morse)",
+        "Classical Cipher Analysis (Caesar, Atbash, Vigenère)",
+        "Statistical English Frequency Scoring",
+      ],
+      documentation: [
+        {
+          label: "Source Code (GitHub)",
+          url: "https://github.com/zerotrust1/cybersecurity-project",
+        },
+      ],
+    },
+    {
+      title: "Nocturne",
+      description:
+        "AI-automated night-shift Network Operations Center (NOC) monitoring system tailored for Internet Service Providers (ISPs), parsing network alerts, routing anomalies, and fiber outage events.",
+      longDescription:
+        "Nocturne provides 24/7 intelligent triage for ISP network operations. It integrates with network monitoring tools, analyzes BGP/OSPF route state changes, detects fiber cut events, and generates incident summaries for on-call network engineers.",
+      tags: ["Networking", "AI Automation", "ISP Operations", "Python", "BGP/OSPF"],
+      link: "https://github.com/rel7z/nocturne",
+      features: [
+        "24/7 ISP NOC Monitoring",
+        "Automated Alert Triage",
+        "Routing Anomaly Detection",
+        "Incident Escalation & Logging",
+      ],
+      documentation: [
+        {
+          label: "Source Code (GitHub)",
+          url: "https://github.com/rel7z/nocturne",
+        },
+      ],
+    },
+    {
       title: "Calmflow",
       description:
         "A full-featured meditation and mindfulness application designed to help users manage stress and improve mental wellness. Features guided meditation sessions, breathing exercises, and progress tracking with an intuitive interface for a seamless meditation experience.",
@@ -17,12 +59,8 @@ export default function ProjectsPage() {
       features: ["Guided Meditations", "Progress Tracking", "Customizable Timers", "Offline Access"],
       documentation: [
         {
-          label: "View Demo (YouTube)",
-          url: "https://youtu.be/wqaTrk16KCU?si=kpBtEoqBykAgOwvf",
-        },
-        {
-          label: "Source Code",
-          url: "https://github.com/zerotrust1",
+          label: "Source Code (GitHub)",
+          url: "https://github.com/zerotrust1/CalmFlow",
         },
       ],
     },
@@ -37,28 +75,8 @@ export default function ProjectsPage() {
       features: ["AI-Powered Summarization", "Multiple Formats", "Adjustable Length", "Quick Copy"],
       documentation: [
         {
-          label: "View Demo (YouTube)",
-          url: "https://youtu.be/umY26Vy3LP0?si=sr8ucTjwLWmq1Qmm",
-        },
-        {
-          label: "Source Code",
-          url: "https://github.com/zerotrust1",
-        },
-      ],
-    },
-    {
-      title: "CyberProject",
-      description:
-        "Collection of cybersecurity tools and resources for penetration testing, vulnerability assessment, and network security analysis. Designed for ethical hackers and security enthusiasts to enhance their skills and knowledge.",
-      longDescription:
-        "CyberProject provides a comprehensive suite of tools for cybersecurity professionals. It includes penetration testing frameworks, vulnerability scanners, and security analysis utilities to help users identify and mitigate potential threats.",
-      tags: ["Next.js", "TypeScript", "Tailwind CSS", "AI/ML", "API Integration"],
-      link: "https://github.com/zerotrust1/cybersecurity-project",
-      features: ["Penetration Testing", "Vulnerability Assessment", "Network Security Analysis"],
-      documentation: [
-        {
-          label: "Source Code",
-          url: "https://github.com/zerotrust1/cybersecurity-project",
+          label: "Source Code (GitHub)",
+          url: "https://github.com/zerotrust1/Summarizeit",
         },
       ],
     },

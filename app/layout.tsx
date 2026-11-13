@@ -13,20 +13,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Fahrel | Developer",
+  title: "Fahrel Putra | Network Engineer & Penetration Tester",
   description:
-    "Portfolio of Fahrel - Showcasing projects, certifications, and skills.",
+    "Portfolio of Mochammad Fahrel Putra Ardiansyah — Network Engineer at PT Internusa Duta Makmur and Penetration Tester based in Banyuwangi, East Java. Certified JNCIA-SEC & Google Cybersecurity.",
   openGraph: {
-    title: "Fahrel | Developer",
+    title: "Fahrel Putra | Network Engineer & Penetration Tester",
     description:
-      "Portfolio of Fahrel - Showcasing projects, certifications, and skills.",
+      "Portfolio of Mochammad Fahrel Putra Ardiansyah — Network Engineer at PT Internusa Duta Makmur and Penetration Tester based in Banyuwangi, East Java.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fahrel | Developer",
+    title: "Fahrel Putra | Network Engineer & Penetration Tester",
     description:
-      "Portfolio of Fahrel - Showcasing projects, certifications, and skills.",
+      "Portfolio of Mochammad Fahrel Putra Ardiansyah — Network Engineer at PT Internusa Duta Makmur and Penetration Tester based in Banyuwangi, East Java.",
   },
 };
 
