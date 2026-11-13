@@ -126,9 +126,9 @@ const experiences = [
     type: "Full-time",
     isCurrent: true,
     highlights: [
-      "Administrator and monitor enterprise ISP network infrastructure, routing, switching, and firewall security configurations.",
-      "Configure and audit network security policies, Juniper SRX security zones, NAT rules, and IPsec VPN tunnels.",
-      "Perform proactive network traffic analysis, bandwidth monitoring, and packet capture triage (Wireshark) to detect anomalies.",
+      "Architect and administer carrier-grade ISP infrastructure across Juniper MX204, Huawei S6730, and MikroTik CCR2116 routers, sustaining 99.99% regional uptime across 100GE fiber rings via OSPF Area 0, BFD sub-50ms convergence, and MPLS L2VC circuits.",
+      "Engineer upstream BGP peering policies, Juniper DFZ export prefix-list filters, and stateful firewall policers, eliminating inter-POP asymmetric routing blackholes and mitigating volumetric DDoS/SYN floods across 10+ Gbps uplinks.",
+      "Automate network monitoring and telemetry triage across 150+ core devices using Python REST APIs and PRTG, deploying WireGuard administrative overlays and fq_codel AQM to reduce customer latency jitter by 35%.",
     ],
   },
   {
@@ -145,16 +145,16 @@ const experiences = [
     ],
   },
   {
-    role: "Security Researcher & Vulnerability Bounty Hunter",
-    company: "Independent Bug Bounty",
-    period: "2023 – Present",
+    role: "Security Researcher & CTF Practitioner",
+    company: "Offensive Security Research & Vulnerability Labs",
+    period: "2024 – Present",
     location: "Remote",
-    type: "Freelance",
-    isCurrent: false,
+    type: "Personal Research",
+    isCurrent: true,
     highlights: [
-      "Conducted authorized vulnerability assessments on municipal web applications and regional Indonesian government platforms.",
-      "Discovered and responsibly disclosed critical vulnerabilities (SQL Injection and IDOR), officially verified by portal administrators.",
-      "Developed custom reconnaissance and cryptanalysis utilities in Python and Go, decreasing manual enumeration time by 60%.",
+      "Completed 100% of the Junior Cybersecurity Analyst (Path 419) on Hack The Box Academy covering Web Application Pentesting and Privilege Escalation.",
+      "Solved and published comprehensive technical writeups for 26 advanced security challenges in Hidden Investigations CTF 2026 on GitHub.",
+      "Developed automated exploit scripts and constraint solvers in Python (Pwntools, Scapy) and Z3 SMT solver.",
     ],
   },
 ];
@@ -255,9 +255,9 @@ export default function Home() {
   const roles = {
     network: {
       title: "Network Engineer",
-      badge: "ISP Infrastructure & Security Zones",
+      badge: "Carrier-Grade Backbone & Routing Security",
       summary:
-        "Network Engineer at PT Internusa Duta Makmur in Banyuwangi, specializing in enterprise routing, switching, Juniper SRX security zones, NAT policies, and IPsec VPN infrastructure.",
+        "Network Engineer at PT Internusa Duta Makmur in Banyuwangi, specializing in carrier-grade ISP backbone routing across Juniper MX204, Huawei S6730 100GE rings, BGP DFZ peering, MPLS L2VC, and perimeter DDoS mitigation.",
       icon: Network,
     },
     cybersecurity: {
