@@ -4,7 +4,9 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Reveal from "../components/Reveal";
 import ShieldDecoration from "../components/ShieldDecoration";
-import { X, Briefcase, MapPin, ShieldCheck, Network, Code, ArrowRight } from "lucide-react";
+import NetworkDecoration from "../components/NetworkDecoration";
+import CodeDecoration from "../components/CodeDecoration";
+import { X, Briefcase, MapPin, ShieldCheck, Network, Code, ArrowRight, Check, Copy } from "lucide-react";
 import { certGroups } from "../data/certGroups";
 
 const projects = [
@@ -118,26 +120,15 @@ type Project = typeof projects[0];
 const experiences = [
   {
     role: "Network Engineer",
-    company: "Internet Service Provider (ISP)",
+    company: "PT Internusa Duta Makmur",
     period: "2026 – Present",
     location: "Indonesia",
     type: "Full-time",
+    isCurrent: true,
     highlights: [
       "Administer and monitor enterprise ISP network infrastructure, routing, switching, and firewall security configurations.",
       "Configure and audit network security policies, Juniper SRX security zones, NAT rules, and IPsec VPN tunnels.",
       "Perform proactive network traffic analysis, bandwidth monitoring, and packet capture triage (Wireshark) to detect anomalies.",
-    ],
-  },
-  {
-    role: "Security Researcher & Vulnerability Bounty Hunter",
-    company: "Independent Bug Bounty",
-    period: "2023 – Present",
-    location: "Remote",
-    type: "Freelance",
-    highlights: [
-      "Conducted authorized vulnerability assessments on municipal web applications and regional Indonesian government platforms.",
-      "Discovered and responsibly disclosed critical vulnerabilities (SQL Injection and IDOR), officially verified by portal administrators.",
-      "Developed custom reconnaissance and cryptanalysis utilities in Python and Go, decreasing manual enumeration time by 60%.",
     ],
   },
   {
@@ -146,10 +137,24 @@ const experiences = [
     period: "April 2026 – May 2026",
     location: "Surakarta / Remote",
     type: "Full-time",
+    isCurrent: false,
     highlights: [
       "Hardened 50+ Linux hosting servers against automated brute-force attacks and credential stuffing using fail2ban, iptables, and SSH key policies.",
       "Triaged anomalous traffic and suspected brute-force attacks by auditing Linux syslog, auth.log, and Nginx web server access logs under strict SLAs.",
       "Advised hosting clients on post-compromise cleanup and PHP/WordPress backdoor mitigation following unauthorized intrusions.",
+    ],
+  },
+  {
+    role: "Security Researcher & Vulnerability Bounty Hunter",
+    company: "Independent Bug Bounty",
+    period: "2023 – Present",
+    location: "Remote",
+    type: "Freelance",
+    isCurrent: false,
+    highlights: [
+      "Conducted authorized vulnerability assessments on municipal web applications and regional Indonesian government platforms.",
+      "Discovered and responsibly disclosed critical vulnerabilities (SQL Injection and IDOR), officially verified by portal administrators.",
+      "Developed custom reconnaissance and cryptanalysis utilities in Python and Go, decreasing manual enumeration time by 60%.",
     ],
   },
 ];
@@ -157,6 +162,13 @@ const experiences = [
 export default function Home() {
   const [activeRole, setActiveRole] = React.useState<"network" | "cybersecurity" | "developer">("network");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [copiedEmail, setCopiedEmail] = useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText("fahrel02x@gmail.com");
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2000);
+  };
 
   const ProjectModal = ({ project, onClose }: { project: Project | null; onClose: () => void }) => {
     if (!project) return null;
@@ -186,7 +198,7 @@ export default function Home() {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 dark:text-blue-400 hover:underline text-sm inline-flex items-center gap-1"
+                  className="text-blue-600 dark:text-blue-400 hover:underline text-sm inline-flex items-center gap-1 font-medium"
                 >
                   Visit Project <span>↗</span>
                 </a>
@@ -209,8 +221,8 @@ export default function Home() {
                 <h4 className="font-semibold text-gray-900 dark:text-white mb-3">Key Features</h4>
                 <ul className="space-y-2">
                   {project.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
-                      <span className="w-1.5 h-1.5 bg-black dark:bg-white rounded-full flex-shrink-0 mt-1.5" />
+                    <li key={idx} className="flex items-center gap-2 text-gray-600 dark:text-gray-300 text-sm">
+                      <span className="w-1.5 h-1.5 bg-black dark:bg-white rounded-full flex-shrink-0" />
                       {feature}
                     </li>
                   ))}
@@ -226,7 +238,7 @@ export default function Home() {
                       href={doc.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-2 text-sm bg-black dark:bg-white text-white dark:text-black rounded-lg hover:opacity-80 active:scale-95 transition-all duration-200"
+                      className="px-4 py-2 text-sm bg-black dark:bg-white text-white dark:text-black rounded-lg hover:opacity-85 active:scale-95 transition-all duration-200 font-medium"
                     >
                       {doc.label}
                     </a>
@@ -245,14 +257,14 @@ export default function Home() {
       title: "Network Engineer",
       badge: "ISP Infrastructure & Security Zones",
       summary:
-        "Network Engineer based in Indonesia specializing in enterprise routing, switching, Juniper SRX security zones, NAT, and IPsec VPN infrastructure.",
+        "Network Engineer at PT Internusa Duta Makmur in Indonesia, specializing in enterprise routing, switching, Juniper SRX security zones, NAT policies, and IPsec VPN infrastructure.",
       icon: Network,
     },
     cybersecurity: {
       title: "Penetration Tester",
       badge: "JNCIA-SEC & Google Cybersecurity",
       summary:
-        "Offensive security researcher with 5+ years of practical research. Certified in JNCIA-SEC and Google Cybersecurity, specializing in perimeter defense, OWASP Top 10 web app pentesting, and responsible vulnerability disclosure.",
+        "Offensive security researcher with 5+ years of practical research. Certified in JNCIA-SEC, Google Cybersecurity, and HTB Academy Junior Cybersecurity Analyst, specializing in perimeter defense, OWASP Top 10 pentesting, and responsible vulnerability disclosure.",
       icon: ShieldCheck,
     },
     developer: {
@@ -305,16 +317,32 @@ export default function Home() {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-white dark:bg-black font-sans">
+    <div className="flex flex-col min-h-screen bg-white dark:bg-black font-sans selection:bg-blue-500 selection:text-white">
       {/* Navigation Bar */}
-      <nav className="flex items-center justify-between px-6 py-4 md:px-8 md:py-6 border-b border-gray-200 dark:border-gray-800 sticky top-0 bg-white dark:bg-black z-50">
+      <nav className="flex items-center justify-between px-6 py-4 md:px-8 md:py-5 border-b border-gray-200 dark:border-gray-800 sticky top-0 bg-white/85 dark:bg-black/85 backdrop-blur-md z-50 transition-colors">
         <Reveal once={true} className="inline-block">
           <Link href="/">
-            <h2 className="text-xl font-semibold text-black dark:text-white cursor-pointer">
+            <h2 className="text-xl font-bold text-black dark:text-white cursor-pointer tracking-tight">
               Fahrel Putra
             </h2>
           </Link>
         </Reveal>
+
+        {/* Desktop Quick Nav Links */}
+        <div className="hidden md:flex items-center gap-7 text-sm font-medium text-gray-600 dark:text-gray-400">
+          <a href="#projects" className="hover:text-black dark:hover:text-white transition-colors">
+            Projects
+          </a>
+          <a href="#certifications" className="hover:text-black dark:hover:text-white transition-colors">
+            Certifications
+          </a>
+          <a href="#experience" className="hover:text-black dark:hover:text-white transition-colors">
+            Experience
+          </a>
+          <a href="#contact" className="hover:text-black dark:hover:text-white transition-colors">
+            Contact
+          </a>
+        </div>
 
         <Reveal once={true}>
           <div className="flex items-center gap-2.5">
@@ -336,13 +364,41 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="flex items-start justify-center pt-20 md:pt-28 pb-16 w-full px-4 min-h-[40vh]">
+      <section className="flex items-start justify-center pt-16 md:pt-24 pb-16 w-full px-4 min-h-[42vh]">
         <div className="text-center space-y-6 max-w-3xl mx-auto">
-          {/* Location Badge */}
+          {/* Status and Action Badges */}
           <Reveal>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gray-100 dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700 text-xs md:text-sm text-gray-700 dark:text-gray-300">
-              <MapPin className="w-3.5 h-3.5 text-blue-500" />
-              <span>Indonesia • Available for Remote & On-site</span>
+            <div className="flex flex-wrap items-center justify-center gap-2.5">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gray-100 dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700 text-xs md:text-sm text-gray-700 dark:text-gray-300">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span className="font-medium">Available for Opportunities</span>
+                <span className="text-gray-400 dark:text-gray-500">•</span>
+                <span className="flex items-center gap-1">
+                  <MapPin className="w-3 h-3 text-blue-500" />
+                  Indonesia
+                </span>
+              </div>
+
+              <button
+                onClick={handleCopyEmail}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gray-100 dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700 text-xs md:text-sm text-gray-700 dark:text-gray-300 hover:border-gray-400 dark:hover:border-gray-500 transition-colors"
+                title="Click to copy email address"
+              >
+                {copiedEmail ? (
+                  <>
+                    <Check className="w-3.5 h-3.5 text-emerald-500" />
+                    <span className="text-emerald-600 dark:text-emerald-400 font-medium">Copied fahrel02x@gmail.com</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-3.5 h-3.5 text-gray-400" />
+                    <span>Copy Email</span>
+                  </>
+                )}
+              </button>
             </div>
           </Reveal>
 
@@ -397,16 +453,29 @@ export default function Home() {
             </p>
           </Reveal>
 
+          {/* Interactive Visual Graphic For Each Role */}
+          {activeRole === "network" && (
+            <Reveal>
+              <NetworkDecoration />
+            </Reveal>
+          )}
+
           {activeRole === "cybersecurity" && (
             <Reveal>
               <ShieldDecoration />
+            </Reveal>
+          )}
+
+          {activeRole === "developer" && (
+            <Reveal>
+              <CodeDecoration />
             </Reveal>
           )}
         </div>
       </section>
 
       {/* 1. Featured Projects Section (Top 2: Nocturne & CamouDesk) */}
-      <section className="w-full px-6 md:px-8 py-20 border-t border-gray-200 dark:border-gray-800">
+      <section id="projects" className="w-full px-6 md:px-8 py-20 border-t border-gray-200 dark:border-gray-800 scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <Reveal>
             <div className="flex items-center justify-between mb-12">
@@ -414,7 +483,7 @@ export default function Home() {
                 <span className="text-xs uppercase tracking-wider font-bold text-blue-600 dark:text-blue-400">
                   Featured Works
                 </span>
-                <h3 className="text-3xl md:text-4xl font-bold text-black dark:text-white mt-1">
+                <h3 className="text-3xl md:text-4xl font-bold text-black dark:text-white mt-1 tracking-tight">
                   Projects
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
@@ -434,7 +503,7 @@ export default function Home() {
           <div className="space-y-6">
             {projects.slice(0, 2).map((project, index) => (
               <Reveal key={index} delay={index * 120} className="block">
-                <div className="group p-6 md:p-7 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-600 transition-all duration-300 hover:bg-gray-50 dark:hover:bg-gray-900/50">
+                <div className="group p-6 md:p-7 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-600 transition-all duration-300 hover:bg-gray-50/80 dark:hover:bg-gray-900/50">
                   <div className="space-y-4">
                     <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
                       <div className="flex-1">
@@ -459,7 +528,7 @@ export default function Home() {
                       </div>
                       <button
                         onClick={() => setSelectedProject(project)}
-                        className="flex-shrink-0 px-4 py-2 text-sm bg-black dark:bg-white text-white dark:text-black rounded-lg hover:opacity-85 active:scale-95 transition-all duration-200"
+                        className="flex-shrink-0 px-4 py-2 text-sm bg-black dark:bg-white text-white dark:text-black rounded-lg hover:opacity-85 active:scale-95 transition-all duration-200 font-medium"
                       >
                         Details
                       </button>
@@ -497,7 +566,7 @@ export default function Home() {
       </section>
 
       {/* 2. Licenses & Certifications Section */}
-      <section className="w-full px-6 md:px-8 py-20 border-t border-gray-200 dark:border-gray-800 bg-gray-50/40 dark:bg-gray-950/30">
+      <section id="certifications" className="w-full px-6 md:px-8 py-20 border-t border-gray-200 dark:border-gray-800 bg-gray-50/40 dark:bg-gray-950/30 scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <Reveal>
             <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-3">
@@ -505,7 +574,7 @@ export default function Home() {
                 <span className="text-xs uppercase tracking-wider font-bold text-blue-600 dark:text-blue-400">
                   Featured Credentials
                 </span>
-                <h3 className="text-3xl md:text-4xl font-bold text-black dark:text-white mt-1">
+                <h3 className="text-3xl md:text-4xl font-bold text-black dark:text-white mt-1 tracking-tight">
                   Licenses & Certifications
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
@@ -519,14 +588,14 @@ export default function Home() {
             {certGroups.map((group, index) => (
               <Reveal key={group.slug} delay={(index % 2) * 100}>
                 <Link href={`/certifications/${group.slug}`}>
-                  <div className="p-6 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-600 transition-all duration-300 bg-white dark:bg-black/40 cursor-pointer group h-full flex flex-col justify-between">
+                  <div className="p-6 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-600 transition-all duration-300 bg-white dark:bg-black/40 cursor-pointer group h-full flex flex-col justify-between hover:shadow-sm">
                     <div>
                       <div className="flex items-center justify-between gap-2 mb-2">
                         <h4 className="text-lg font-bold text-black dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                           {group.title}
                         </h4>
                         {group.badge && (
-                          <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200">
+                          <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200">
                             {group.badge}
                           </span>
                         )}
@@ -561,8 +630,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. Experience Section (Bawah Sendiri & Expanded) */}
-      <section className="w-full px-6 md:px-8 py-20 border-t border-gray-200 dark:border-gray-800">
+      {/* 3. Experience Section (Chronologically Ordered & Expanded) */}
+      <section id="experience" className="w-full px-6 md:px-8 py-20 border-t border-gray-200 dark:border-gray-800 scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <Reveal>
             <div className="flex items-center justify-between mb-12">
@@ -570,7 +639,7 @@ export default function Home() {
                 <span className="text-xs uppercase tracking-wider font-bold text-blue-600 dark:text-blue-400">
                   Career History
                 </span>
-                <h3 className="text-3xl md:text-4xl font-bold text-black dark:text-white mt-1">
+                <h3 className="text-3xl md:text-4xl font-bold text-black dark:text-white mt-1 tracking-tight">
                   Experience
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
@@ -588,26 +657,34 @@ export default function Home() {
             </div>
           </Reveal>
 
-          {/* Expanded Experience Cards */}
+          {/* Chronological Expanded Experience Cards */}
           <div className="space-y-6">
             {experiences.map((exp, index) => (
               <Reveal key={index} delay={index * 80} className="block">
-                <div className="p-6 md:p-7 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-black/40 hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-300">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-gray-100 dark:border-gray-800/80">
+                <div className="group p-6 md:p-8 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-black/40 hover:border-gray-400 dark:hover:border-gray-600 transition-all duration-300">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-gray-100 dark:border-gray-800/80">
                     <div>
-                      <h4 className="text-xl font-bold text-black dark:text-white flex items-center gap-2">
-                        <Briefcase className="w-4 h-4 text-blue-500 flex-shrink-0" />
-                        {exp.role}
-                      </h4>
-                      <p className="text-base font-semibold text-gray-800 dark:text-gray-200 mt-0.5">
+                      <div className="flex items-center gap-2">
+                        {exp.isCurrent && (
+                          <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                          </span>
+                        )}
+                        <h4 className="text-xl font-bold text-black dark:text-white flex items-center gap-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                          <Briefcase className="w-4 h-4 text-blue-500 flex-shrink-0" />
+                          {exp.role}
+                        </h4>
+                      </div>
+                      <p className="text-base font-semibold text-gray-800 dark:text-gray-200 mt-1">
                         {exp.company}
                       </p>
                     </div>
                     <div className="text-left sm:text-right">
-                      <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
+                      <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200">
                         {exp.period}
                       </span>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 font-medium">
                         {exp.location} • {exp.type}
                       </p>
                     </div>
@@ -630,18 +707,27 @@ export default function Home() {
       </section>
 
       {/* Footer: Contact Section */}
-      <footer className="w-full px-6 md:px-8 py-10 border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-black">
+      <footer id="contact" className="w-full px-6 md:px-8 py-12 border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-black scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <Reveal>
             <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 mb-6">
               <div className="text-center">
                 <p className="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-1">Email</p>
-                <a
-                  href="mailto:fahrel02x@gmail.com"
-                  className="text-sm font-semibold text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition"
-                >
-                  fahrel02x@gmail.com
-                </a>
+                <div className="flex items-center justify-center gap-2">
+                  <a
+                    href="mailto:fahrel02x@gmail.com"
+                    className="text-sm font-semibold text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition"
+                  >
+                    fahrel02x@gmail.com
+                  </a>
+                  <button
+                    onClick={handleCopyEmail}
+                    className="p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-400 hover:text-black dark:hover:text-white transition"
+                    title="Copy email address"
+                  >
+                    {copiedEmail ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
+                  </button>
+                </div>
               </div>
               <div className="hidden md:block w-px h-8 bg-gray-200 dark:bg-gray-800"></div>
               <div className="text-center">
@@ -664,12 +750,13 @@ export default function Home() {
               </div>
             </div>
           </Reveal>
-          <p className="mt-6 text-xs text-gray-500 dark:text-gray-400 text-center">
-            © 2026 Mochammad Fahrel Putra Ardiansyah. All rights reserved.
+          <p className="mt-8 text-xs text-gray-500 dark:text-gray-400 text-center">
+            © 2026 Mochammad Fahrel Putra Ardiansyah. Built with Next.js, TypeScript & Tailwind CSS.
           </p>
         </div>
       </footer>
 
+      {/* Project Details Modal */}
       {selectedProject && (
         <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
       )}
