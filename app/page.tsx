@@ -132,7 +132,7 @@ const experiences = [
     ],
   },
   {
-    role: "Systems Administrator & Security Associate",
+    role: "IT Support",
     company: "PT Transformasi Data Digital (Hostdata.id)",
     period: "April 2026 – May 2026",
     location: "Surakarta / Remote",
