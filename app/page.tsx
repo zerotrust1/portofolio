@@ -91,7 +91,7 @@ const experiences = [
     role: "Network Engineer",
     company: "PT Internusa Duta Makmur",
     period: "2026 – Present",
-    location: "Banyuwangi, Jawa Timur, Indonesia",
+    location: "Indonesia",
     type: "Full-time",
     highlights: [
       "Administer and monitor enterprise ISP network infrastructure, routing, switching, and firewall security configurations.",
@@ -216,7 +216,7 @@ export default function Home() {
       title: "Network Engineer",
       badge: "ISP Infrastructure & Security Zones",
       summary:
-        "Network Engineer at PT Internusa Duta Makmur in Banyuwangi, East Java. Specialized in enterprise routing, switching, Juniper SRX security zone architecture, NAT policies, and IPsec VPN infrastructure.",
+        "Network Engineer at PT Internusa Duta Makmur in Indonesia. Specialized in enterprise routing, switching, Juniper SRX security zone architecture, NAT policies, and IPsec VPN infrastructure.",
       icon: Network,
     },
     cybersecurity: {
@@ -312,7 +312,7 @@ export default function Home() {
           <Reveal>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-100 dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700 text-xs md:text-sm text-gray-700 dark:text-gray-300">
               <MapPin className="w-3.5 h-3.5 text-blue-500" />
-              <span>Banyuwangi, Jawa Timur, Indonesia • Available for Remote & On-site</span>
+              <span>Indonesia • Available for Remote & On-site</span>
             </div>
           </Reveal>
 
@@ -614,7 +614,7 @@ export default function Home() {
               <div className="text-center">
                 <p className="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-1">Location</p>
                 <p className="text-sm font-semibold text-black dark:text-white">
-                  Banyuwangi, East Java, ID
+                  Indonesia
                 </p>
               </div>
             </div>
