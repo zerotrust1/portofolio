@@ -122,7 +122,7 @@ const experiences = [
     role: "Network Engineer",
     company: "PT Internusa Duta Makmur",
     period: "August 2026 – Present",
-    location: "Indonesia",
+    location: "Banyuwangi, Indonesia",
     type: "Full-time",
     isCurrent: true,
     highlights: [
@@ -257,7 +257,7 @@ export default function Home() {
       title: "Network Engineer",
       badge: "ISP Infrastructure & Security Zones",
       summary:
-        "Network Engineer at PT Internusa Duta Makmur in Indonesia, specializing in enterprise routing, switching, Juniper SRX security zones, NAT policies, and IPsec VPN infrastructure.",
+        "Network Engineer at PT Internusa Duta Makmur in Banyuwangi, specializing in enterprise routing, switching, Juniper SRX security zones, NAT policies, and IPsec VPN infrastructure.",
       icon: Network,
     },
     cybersecurity: {
