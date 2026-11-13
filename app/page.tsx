@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Reveal from "../components/Reveal";
 import ShieldDecoration from "../components/ShieldDecoration";
-import { X, Briefcase, MapPin, ShieldCheck, Network, Code } from "lucide-react";
+import { X, Briefcase, MapPin, ShieldCheck, Network, Code, ArrowRight } from "lucide-react";
 import { certGroups } from "../data/certGroups";
 
 const projects = [
@@ -97,7 +97,7 @@ type Project = typeof projects[0];
 const experiences = [
   {
     role: "Network Engineer",
-    company: "PT Internusa Duta Makmur",
+    company: "Internet Service Provider (ISP)",
     period: "2026 – Present",
     location: "Indonesia",
     type: "Full-time",
@@ -224,7 +224,7 @@ export default function Home() {
       title: "Network Engineer",
       badge: "ISP Infrastructure & Security Zones",
       summary:
-        "Network Engineer at PT Internusa Duta Makmur in Indonesia. Specialized in enterprise routing, switching, Juniper SRX security zone architecture, NAT policies, and IPsec VPN infrastructure.",
+        "Network Engineer based in Indonesia specializing in enterprise routing, switching, Juniper SRX security zones, NAT, and IPsec VPN infrastructure.",
       icon: Network,
     },
     cybersecurity: {
@@ -384,153 +384,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Projects Section */}
-      <section className="w-full px-6 md:px-8 py-20 border-t border-gray-200 dark:border-gray-800">
-        <div className="max-w-4xl mx-auto">
-          <Reveal>
-            <div className="flex items-center justify-between mb-12">
-              <div>
-                <h3 className="text-3xl md:text-4xl font-bold text-black dark:text-white">Featured Projects</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                  Open-source tools, networking systems, and web utilities
-                </p>
-              </div>
-              <Link
-                href="/projects"
-                className="text-sm text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1 font-medium"
-              >
-                All Projects <span>↗</span>
-              </Link>
-            </div>
-          </Reveal>
-
-          <div className="space-y-4">
-            {projects.map((project, index) => (
-              <Reveal key={index} className="block">
-                <div className="group p-5 md:p-6 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-600 transition-all duration-300 hover:bg-gray-50 dark:hover:bg-gray-900/50">
-                  <div className="space-y-3">
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="flex-1">
-                        <h4 className="text-xl md:text-2xl font-bold text-black dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                          {project.title}
-                        </h4>
-                        <div className="flex flex-wrap gap-2 mt-2">
-                          {project.tags.slice(0, 3).map((tag) => (
-                            <span
-                              key={tag}
-                              className="px-2.5 py-0.5 text-xs bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-md font-medium"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                      <button
-                        onClick={() => setSelectedProject(project)}
-                        className="flex-shrink-0 px-3.5 py-1.5 text-sm bg-black dark:bg-white text-white dark:text-black rounded-lg hover:opacity-85 active:scale-95 transition-all duration-200"
-                      >
-                        Details
-                      </button>
-                    </div>
-
-                    <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 leading-relaxed">
-                      {project.description}
-                    </p>
-
-                    <div className="pt-2 flex items-center gap-4">
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center gap-1 font-medium"
-                      >
-                        Visit Project <span>↗</span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-
-          <Reveal className="flex justify-center pt-8">
-            <Link href="/projects">
-              <button className="px-8 py-3 bg-black dark:bg-white text-white dark:text-black font-semibold rounded-xl hover:opacity-85 active:scale-95 transition-all duration-200">
-                View All Projects
-              </button>
-            </Link>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Experience Section (Understated & Sleek Minimalist Timeline) */}
-      <section className="w-full px-6 md:px-8 py-20 border-t border-gray-200 dark:border-gray-800">
-        <div className="max-w-4xl mx-auto">
-          <Reveal>
-            <div className="flex items-center justify-between mb-12">
-              <div>
-                <h3 className="text-3xl md:text-4xl font-bold text-black dark:text-white">Experience</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                  Professional roles and offensive security background
-                </p>
-              </div>
-              <a
-                href="https://www.linkedin.com/in/fahrelardiansyah/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1 font-medium"
-              >
-                LinkedIn Profile <span>↗</span>
-              </a>
-            </div>
-          </Reveal>
-
-          {/* Clean Understated Timeline */}
-          <div className="relative border-l border-gray-200 dark:border-gray-800 ml-3 md:ml-4 pl-6 md:pl-8 space-y-10">
-            {experiences.map((exp, index) => (
-              <Reveal key={index} className="relative block">
-                {/* Timeline node dot */}
-                <span className="absolute -left-[31px] md:-left-[39px] top-1.5 w-3 h-3 rounded-full bg-blue-600 ring-4 ring-white dark:ring-black" />
-
-                <div className="space-y-2">
-                  <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-4">
-                    <h4 className="text-lg md:text-xl font-bold text-black dark:text-white flex items-center gap-2">
-                      <Briefcase className="w-4 h-4 text-gray-500 dark:text-gray-400 flex-shrink-0" />
-                      {exp.role}
-                    </h4>
-                    <span className="text-xs font-mono text-gray-500 dark:text-gray-400 flex-shrink-0">
-                      {exp.period}
-                    </span>
-                  </div>
-
-                  <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">
-                    {exp.company} <span className="text-gray-400 dark:text-gray-600 font-normal">• {exp.location} ({exp.type})</span>
-                  </p>
-
-                  <ul className="mt-2 space-y-1.5 text-sm text-gray-600 dark:text-gray-400">
-                    {exp.highlights.map((highlight, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
-                        <span className="w-1 h-1 rounded-full bg-gray-400 dark:bg-gray-600 flex-shrink-0 mt-2" />
-                        <span className="leading-relaxed">{highlight}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Licenses & Certifications Section (Unified with Juniper / JNCIA-SEC & Hack The Box) */}
+      {/* 1. Licenses & Certifications Section (HIGHLIGHT NO. 1) */}
       <section className="w-full px-6 md:px-8 py-20 border-t border-gray-200 dark:border-gray-800 bg-gray-50/40 dark:bg-gray-950/30">
         <div className="max-w-4xl mx-auto">
           <Reveal>
-            <div className="mb-12">
-              <h3 className="text-3xl md:text-4xl font-bold text-black dark:text-white">Licenses & Certifications</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                Verified industry credentials in Network Security, Cybersecurity, and AI
-              </p>
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-3">
+              <div>
+                <span className="text-xs uppercase tracking-wider font-bold text-blue-600 dark:text-blue-400">
+                  Featured Credentials
+                </span>
+                <h3 className="text-3xl md:text-4xl font-bold text-black dark:text-white mt-1">
+                  Licenses & Certifications
+                </h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                  Verified industry credentials in Network Security, Cybersecurity, and AI
+                </p>
+              </div>
             </div>
           </Reveal>
 
@@ -574,6 +443,165 @@ export default function Home() {
                     </div>
                   </div>
                 </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 2. Featured Projects Section (Top 2: Cipher Identifier & Nocturne) */}
+      <section className="w-full px-6 md:px-8 py-20 border-t border-gray-200 dark:border-gray-800">
+        <div className="max-w-4xl mx-auto">
+          <Reveal>
+            <div className="flex items-center justify-between mb-12">
+              <div>
+                <span className="text-xs uppercase tracking-wider font-bold text-blue-600 dark:text-blue-400">
+                  Featured Works
+                </span>
+                <h3 className="text-3xl md:text-4xl font-bold text-black dark:text-white mt-1">
+                  Projects
+                </h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                  Top offensive security tools and ISP automation systems
+                </p>
+              </div>
+              <Link
+                href="/projects"
+                className="text-sm text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1 font-medium"
+              >
+                All Projects <span>↗</span>
+              </Link>
+            </div>
+          </Reveal>
+
+          {/* Top 2 Projects Displayed on Homepage */}
+          <div className="space-y-6">
+            {projects.slice(0, 2).map((project, index) => (
+              <Reveal key={index} className="block">
+                <div className="group p-6 md:p-7 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-600 transition-all duration-300 hover:bg-gray-50 dark:hover:bg-gray-900/50">
+                  <div className="space-y-4">
+                    <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs font-mono font-bold text-blue-600 dark:text-blue-400">
+                            0{index + 1}
+                          </span>
+                          <h4 className="text-2xl font-bold text-black dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                            {project.title}
+                          </h4>
+                        </div>
+                        <div className="flex flex-wrap gap-2 mt-2">
+                          {project.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="px-2.5 py-0.5 text-xs bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-md font-medium"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                      <button
+                        onClick={() => setSelectedProject(project)}
+                        className="flex-shrink-0 px-4 py-2 text-sm bg-black dark:bg-white text-white dark:text-black rounded-lg hover:opacity-85 active:scale-95 transition-all duration-200"
+                      >
+                        Details
+                      </button>
+                    </div>
+
+                    <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                      {project.description}
+                    </p>
+
+                    <div className="pt-2 flex items-center gap-4">
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center gap-1 font-medium"
+                      >
+                        Visit Project <span>↗</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal className="flex justify-center pt-10">
+            <Link href="/projects">
+              <button className="flex items-center gap-2 px-8 py-3.5 bg-black dark:bg-white text-white dark:text-black font-semibold rounded-xl hover:opacity-85 active:scale-95 transition-all duration-200">
+                <span>View All 4 Projects</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* 3. Experience Section (Bawah Sendiri & Expanded) */}
+      <section className="w-full px-6 md:px-8 py-20 border-t border-gray-200 dark:border-gray-800">
+        <div className="max-w-4xl mx-auto">
+          <Reveal>
+            <div className="flex items-center justify-between mb-12">
+              <div>
+                <span className="text-xs uppercase tracking-wider font-bold text-blue-600 dark:text-blue-400">
+                  Career History
+                </span>
+                <h3 className="text-3xl md:text-4xl font-bold text-black dark:text-white mt-1">
+                  Experience
+                </h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                  Professional roles and offensive security background
+                </p>
+              </div>
+              <a
+                href="https://www.linkedin.com/in/fahrelardiansyah/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1 font-medium"
+              >
+                LinkedIn Profile <span>↗</span>
+              </a>
+            </div>
+          </Reveal>
+
+          {/* Expanded Experience Cards */}
+          <div className="space-y-6">
+            {experiences.map((exp, index) => (
+              <Reveal key={index} className="block">
+                <div className="p-6 md:p-7 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-black/40 hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-300">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-gray-100 dark:border-gray-800/80">
+                    <div>
+                      <h4 className="text-xl font-bold text-black dark:text-white flex items-center gap-2">
+                        <Briefcase className="w-4 h-4 text-blue-500 flex-shrink-0" />
+                        {exp.role}
+                      </h4>
+                      <p className="text-base font-semibold text-gray-800 dark:text-gray-200 mt-0.5">
+                        {exp.company}
+                      </p>
+                    </div>
+                    <div className="text-left sm:text-right">
+                      <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
+                        {exp.period}
+                      </span>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                        {exp.location} • {exp.type}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Fully Expanded Highlights List */}
+                  <ul className="mt-4 space-y-2.5 text-sm text-gray-600 dark:text-gray-300">
+                    {exp.highlights.map((highlight, idx) => (
+                      <li key={idx} className="flex items-start gap-2.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0 mt-2" />
+                        <span className="leading-relaxed">{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </Reveal>
             ))}
           </div>
