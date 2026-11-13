@@ -4,14 +4,16 @@ import { certGroups } from "../../../data/certGroups";
 import CertGroupClient from "./CertGroupClient";
 
 export function generateStaticParams() {
-  return certGroups.map((group) => ({
+  const params = certGroups.map((group) => ({
     slug: group.slug,
   }));
+  params.push({ slug: "google-cybersecurity" });
+  return params;
 }
 
 export default async function CertGroupPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const group = certGroups.find((g) => g.slug === slug);
+  const group = certGroups.find((g) => g.slug === slug || (slug === "google-cybersecurity" && g.slug === "google"));
 
   if (!group) {
     return (

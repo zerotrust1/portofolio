@@ -144,7 +144,7 @@ const experiences = [
     role: "Systems Administrator & Security Associate",
     company: "PT Transformasi Data Digital (Hostdata.id)",
     period: "April 2026 – May 2026",
-    location: "Kediri / Remote",
+    location: "Solo / Remote",
     type: "Contract",
     highlights: [
       "Hardened 50+ Linux hosting servers against automated brute-force attacks and credential stuffing using fail2ban, iptables, and SSH key policies.",
@@ -405,72 +405,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 1. Licenses & Certifications Section (HIGHLIGHT NO. 1) */}
-      <section className="w-full px-6 md:px-8 py-20 border-t border-gray-200 dark:border-gray-800 bg-gray-50/40 dark:bg-gray-950/30">
-        <div className="max-w-4xl mx-auto">
-          <Reveal>
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-3">
-              <div>
-                <span className="text-xs uppercase tracking-wider font-bold text-blue-600 dark:text-blue-400">
-                  Featured Credentials
-                </span>
-                <h3 className="text-3xl md:text-4xl font-bold text-black dark:text-white mt-1">
-                  Licenses & Certifications
-                </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                  Verified industry credentials in Network Security, Cybersecurity, and AI
-                </p>
-              </div>
-            </div>
-          </Reveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {certGroups.map((group) => (
-              <Reveal key={group.slug}>
-                <Link href={`/certifications/${group.slug}`}>
-                  <div className="p-6 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-600 transition-all duration-300 bg-white dark:bg-black/40 cursor-pointer group h-full flex flex-col justify-between">
-                    <div>
-                      <div className="flex items-center justify-between gap-2 mb-2">
-                        <h4 className="text-lg font-bold text-black dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                          {group.title}
-                        </h4>
-                        {group.badge && (
-                          <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200">
-                            {group.badge}
-                          </span>
-                        )}
-                      </div>
-
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                        {group.description}
-                      </p>
-
-                      <div className="mt-4 pt-3 border-t border-gray-100 dark:border-gray-800/80 space-y-1.5">
-                        {group.certifications.map((cert, cIdx) => (
-                          <div key={cIdx} className="text-xs text-gray-700 dark:text-gray-300">
-                            <span className="font-semibold text-black dark:text-white">• {cert.title}</span>
-                            {cert.credentialId && (
-                              <span className="text-blue-600 dark:text-blue-400 font-mono ml-1.5">({cert.credentialId})</span>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="mt-5 pt-3">
-                      <span className="inline-block px-4 py-2 text-xs md:text-sm bg-gray-100 dark:bg-gray-800 text-black dark:text-white rounded-lg group-hover:bg-black group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black transition font-medium">
-                        Open Catalog & Verify →
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 2. Featured Projects Section (Top 2: Nocturne & CamouDesk) */}
+      {/* 1. Featured Projects Section (Top 2: Nocturne & CamouDesk) */}
       <section className="w-full px-6 md:px-8 py-20 border-t border-gray-200 dark:border-gray-800">
         <div className="max-w-4xl mx-auto">
           <Reveal>
@@ -558,6 +493,71 @@ export default function Home() {
               </button>
             </Link>
           </Reveal>
+        </div>
+      </section>
+
+      {/* 2. Licenses & Certifications Section */}
+      <section className="w-full px-6 md:px-8 py-20 border-t border-gray-200 dark:border-gray-800 bg-gray-50/40 dark:bg-gray-950/30">
+        <div className="max-w-4xl mx-auto">
+          <Reveal>
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-3">
+              <div>
+                <span className="text-xs uppercase tracking-wider font-bold text-blue-600 dark:text-blue-400">
+                  Featured Credentials
+                </span>
+                <h3 className="text-3xl md:text-4xl font-bold text-black dark:text-white mt-1">
+                  Licenses & Certifications
+                </h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                  Verified industry credentials in Network Security, Cybersecurity, and AI
+                </p>
+              </div>
+            </div>
+          </Reveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {certGroups.map((group) => (
+              <Reveal key={group.slug}>
+                <Link href={`/certifications/${group.slug}`}>
+                  <div className="p-6 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-600 transition-all duration-300 bg-white dark:bg-black/40 cursor-pointer group h-full flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between gap-2 mb-2">
+                        <h4 className="text-lg font-bold text-black dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                          {group.title}
+                        </h4>
+                        {group.badge && (
+                          <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200">
+                            {group.badge}
+                          </span>
+                        )}
+                      </div>
+
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                        {group.description}
+                      </p>
+
+                      <div className="mt-4 pt-3 border-t border-gray-100 dark:border-gray-800/80 space-y-1.5">
+                        {group.certifications.map((cert, cIdx) => (
+                          <div key={cIdx} className="text-xs text-gray-700 dark:text-gray-300">
+                            <span className="font-semibold text-black dark:text-white">• {cert.title}</span>
+                            {cert.credentialId && (
+                              <span className="text-blue-600 dark:text-blue-400 font-mono ml-1.5">({cert.credentialId})</span>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="mt-5 pt-3">
+                      <span className="inline-block px-4 py-2 text-xs md:text-sm bg-gray-100 dark:bg-gray-800 text-black dark:text-white rounded-lg group-hover:bg-black group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black transition font-medium">
+                        Open Catalog & Verify →
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 

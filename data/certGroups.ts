@@ -27,8 +27,8 @@ export const certGroups: CertGroup[] = [
     ],
   },
   {
-    title: "Google Cybersecurity",
-    slug: "google-cybersecurity",
+    title: "Google",
+    slug: "google",
     description: "Threat analysis, SIEM forensics, and incident response specialization",
     badge: "Professional Certificate",
     certifications: [
