@@ -121,12 +121,12 @@ const experiences = [
   {
     role: "Network Engineer",
     company: "PT Internusa Duta Makmur",
-    period: "2026 – Present",
+    period: "August 2026 – Present",
     location: "Indonesia",
     type: "Full-time",
     isCurrent: true,
     highlights: [
-      "Administer and monitor enterprise ISP network infrastructure, routing, switching, and firewall security configurations.",
+      "Administrator and monitor enterprise ISP network infrastructure, routing, switching, and firewall security configurations.",
       "Configure and audit network security policies, Juniper SRX security zones, NAT rules, and IPsec VPN tunnels.",
       "Perform proactive network traffic analysis, bandwidth monitoring, and packet capture triage (Wireshark) to detect anomalies.",
     ],
@@ -366,39 +366,11 @@ export default function Home() {
       {/* Hero Section */}
       <section className="flex items-start justify-center pt-16 md:pt-24 pb-16 w-full px-4 min-h-[42vh]">
         <div className="text-center space-y-6 max-w-3xl mx-auto">
-          {/* Status and Action Badges */}
+          {/* Location Badge */}
           <Reveal>
-            <div className="flex flex-wrap items-center justify-center gap-2.5">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gray-100 dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700 text-xs md:text-sm text-gray-700 dark:text-gray-300">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
-                <span className="font-medium">Available for Opportunities</span>
-                <span className="text-gray-400 dark:text-gray-500">•</span>
-                <span className="flex items-center gap-1">
-                  <MapPin className="w-3 h-3 text-blue-500" />
-                  Indonesia
-                </span>
-              </div>
-
-              <button
-                onClick={handleCopyEmail}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gray-100 dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700 text-xs md:text-sm text-gray-700 dark:text-gray-300 hover:border-gray-400 dark:hover:border-gray-500 transition-colors"
-                title="Click to copy email address"
-              >
-                {copiedEmail ? (
-                  <>
-                    <Check className="w-3.5 h-3.5 text-emerald-500" />
-                    <span className="text-emerald-600 dark:text-emerald-400 font-medium">Copied fahrel02x@gmail.com</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-3.5 h-3.5 text-gray-400" />
-                    <span>Copy Email</span>
-                  </>
-                )}
-              </button>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gray-100 dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700 text-xs md:text-sm text-gray-700 dark:text-gray-300">
+              <MapPin className="w-3.5 h-3.5 text-blue-500" />
+              <span>Indonesia • Available for Remote & On-site</span>
             </div>
           </Reveal>
 
@@ -630,14 +602,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. Experience Section (Chronologically Ordered & Expanded) */}
+      {/* 3. Experience Section (Career Timeline) */}
       <section id="experience" className="w-full px-6 md:px-8 py-20 border-t border-gray-200 dark:border-gray-800 scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <Reveal>
             <div className="flex items-center justify-between mb-12">
               <div>
                 <span className="text-xs uppercase tracking-wider font-bold text-blue-600 dark:text-blue-400">
-                  Career History
+                  Career Timeline
                 </span>
                 <h3 className="text-3xl md:text-4xl font-bold text-black dark:text-white mt-1 tracking-tight">
                   Experience
@@ -657,44 +629,56 @@ export default function Home() {
             </div>
           </Reveal>
 
-          {/* Chronological Expanded Experience Cards */}
-          <div className="space-y-6">
+          {/* Vertical Career Timeline */}
+          <div className="relative border-l-2 border-gray-200 dark:border-gray-800 ml-3 sm:ml-5 pl-6 sm:pl-8 space-y-6">
             {experiences.map((exp, index) => (
-              <Reveal key={index} delay={index * 80} className="block">
-                <div className="group p-6 md:p-8 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-black/40 hover:border-gray-400 dark:hover:border-gray-600 transition-all duration-300">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-gray-100 dark:border-gray-800/80">
+              <Reveal key={index} delay={index * 80} className="block relative">
+                {/* Timeline Node Marker */}
+                <div className="absolute -left-[33px] sm:-left-[41px] top-4 z-10 flex items-center justify-center">
+                  {exp.isCurrent ? (
+                    <span className="relative flex h-4 w-4 items-center justify-center">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-blue-600 dark:bg-blue-500 border-2 border-white dark:border-black"></span>
+                    </span>
+                  ) : (
+                    <span className="inline-flex rounded-full h-3.5 w-3.5 bg-gray-300 dark:bg-gray-700 border-2 border-white dark:border-black group-hover:bg-blue-500 transition-colors"></span>
+                  )}
+                </div>
+
+                {/* Compact Experience Card */}
+                <div className="group p-4 sm:p-5 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-black/40 hover:border-gray-400 dark:hover:border-gray-600 transition-all duration-300 shadow-sm">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-gray-100 dark:border-gray-800/80">
                     <div>
                       <div className="flex items-center gap-2">
                         {exp.isCurrent && (
-                          <span className="relative flex h-2 w-2">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                          <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-900">
+                            Current
                           </span>
                         )}
-                        <h4 className="text-xl font-bold text-black dark:text-white flex items-center gap-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                        <h4 className="text-base sm:text-lg font-bold text-black dark:text-white flex items-center gap-1.5 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                           <Briefcase className="w-4 h-4 text-blue-500 flex-shrink-0" />
                           {exp.role}
                         </h4>
                       </div>
-                      <p className="text-base font-semibold text-gray-800 dark:text-gray-200 mt-1">
+                      <p className="text-sm font-semibold text-gray-800 dark:text-gray-200 mt-0.5">
                         {exp.company}
                       </p>
                     </div>
                     <div className="text-left sm:text-right">
-                      <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200">
+                      <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200">
                         {exp.period}
                       </span>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 font-medium">
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 font-medium">
                         {exp.location} • {exp.type}
                       </p>
                     </div>
                   </div>
 
-                  {/* Fully Expanded Highlights List */}
-                  <ul className="mt-4 space-y-2.5 text-sm text-gray-600 dark:text-gray-300">
+                  {/* Highlights List */}
+                  <ul className="mt-3 space-y-1.5 text-xs sm:text-sm text-gray-600 dark:text-gray-300">
                     {exp.highlights.map((highlight, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0 mt-2" />
+                      <li key={idx} className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0 mt-1.5" />
                         <span className="leading-relaxed">{highlight}</span>
                       </li>
                     ))}

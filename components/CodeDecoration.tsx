@@ -2,13 +2,13 @@
 
 import React from "react";
 
-const CODE_LABELS = [
-  { text: "TypeScript", angle: 0 },
-  { text: "Next.js 16", angle: 60 },
-  { text: "Python & Go", angle: 120 },
-  { text: "Tailwind CSS", angle: 180 },
-  { text: "Network AI", angle: 240 },
-  { text: "macOS Engine", angle: 300 },
+const SOFTWARE_LABELS = [
+  { text: "Python (AsyncIO)", angle: 0 },
+  { text: "Go (Goroutines)", angle: 60 },
+  { text: "Raw Sockets & Scapy", angle: 120 },
+  { text: "AES-256-GCM", angle: 180 },
+  { text: "WebSockets & IPC", angle: 240 },
+  { text: "Modular CLI Tools", angle: 300 },
 ] as const;
 
 export default function CodeDecoration() {
@@ -16,44 +16,70 @@ export default function CodeDecoration() {
     <div
       className="shield-deco group relative mx-auto mt-10 h-[240px] w-[240px] overflow-visible outline-none"
       tabIndex={0}
-      aria-label="Software engineering stack: TypeScript, Next.js, Python, Go, Tailwind, Network AI, macOS"
+      aria-label="Software engineering competencies: Python AsyncIO, Go Goroutines, Raw Sockets and Scapy, AES-256-GCM, WebSockets and IPC, Modular CLI Tools"
     >
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
         {/* Ambient Glow */}
         <div className="absolute h-28 w-28 rounded-full bg-emerald-500/20 blur-2xl transition-all duration-500 group-hover:h-36 group-hover:w-36 group-hover:bg-emerald-500/35" />
 
-        {/* Mini IDE Terminal Card */}
-        <div className="relative z-10 w-44 rounded-xl border border-gray-200 dark:border-gray-800 bg-white/90 dark:bg-gray-950/90 p-3 shadow-xl backdrop-blur-md transition-transform duration-500 group-hover:scale-105">
-          {/* Window controls */}
-          <div className="flex items-center gap-1.5 mb-2.5 pb-2 border-b border-gray-100 dark:border-gray-800/80">
-            <div className="w-2.5 h-2.5 rounded-full bg-red-400/80" />
-            <div className="w-2.5 h-2.5 rounded-full bg-amber-400/80" />
-            <div className="w-2.5 h-2.5 rounded-full bg-emerald-400/80" />
-            <span className="text-[9px] font-mono text-gray-400 ml-1.5 font-medium">nocturne.py</span>
-          </div>
+        {/* Dynamic Software Architecture / Engine Graph SVG */}
+        <svg
+          viewBox="0 0 160 160"
+          className="relative z-10 h-36 w-36 text-emerald-500 dark:text-emerald-400 drop-shadow-[0_0_18px_rgba(16,185,129,0.65)] transition-transform duration-500 group-hover:scale-105"
+          fill="none"
+          stroke="currentColor"
+          aria-hidden
+        >
+          {/* Data Bus Connector Paths */}
+          <line x1="80" y1="80" x2="80" y2="28" strokeWidth="1.5" strokeDasharray="3 3" className="animate-pulse text-emerald-400/80" />
+          <line x1="80" y1="80" x2="128" y2="52" strokeWidth="1.5" strokeDasharray="3 3" className="text-emerald-400/80" />
+          <line x1="80" y1="80" x2="128" y2="108" strokeWidth="1.5" strokeDasharray="3 3" className="animate-pulse text-emerald-400/80" />
+          <line x1="80" y1="80" x2="80" y2="132" strokeWidth="1.5" strokeDasharray="3 3" className="text-emerald-400/80" />
+          <line x1="80" y1="80" x2="32" y2="108" strokeWidth="1.5" strokeDasharray="3 3" className="animate-pulse text-emerald-400/80" />
+          <line x1="80" y1="80" x2="32" y2="52" strokeWidth="1.5" strokeDasharray="3 3" className="text-emerald-400/80" />
 
-          {/* Syntax Code Preview */}
-          <div className="space-y-1 font-mono text-[10px] text-left leading-relaxed">
-            <div className="text-gray-400">
-              <span className="text-purple-600 dark:text-purple-400">async def</span>{" "}
-              <span className="text-blue-600 dark:text-blue-400">triage_isp</span>():
-            </div>
-            <div className="pl-3 text-gray-500 dark:text-gray-400">
-              alert = <span className="text-emerald-600 dark:text-emerald-400">&quot;BGP_DOWN&quot;</span>
-            </div>
-            <div className="pl-3 text-gray-500 dark:text-gray-400">
-              <span className="text-purple-600 dark:text-purple-400">return</span> await AI.resolve(alert)
-            </div>
-            <div className="pt-1 flex items-center gap-1.5 text-[9px] font-bold text-emerald-600 dark:text-emerald-400">
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span>PASS • 0 errors</span>
-            </div>
-          </div>
-        </div>
+          {/* Central Systems Core / Kernel Node */}
+          <circle cx="80" cy="80" r="18" className="fill-emerald-600/15 stroke-emerald-500" strokeWidth="2" />
+          <rect x="71" y="71" width="18" height="18" rx="4" className="fill-emerald-500 dark:fill-emerald-400" />
+          <text
+            x="80"
+            y="84"
+            textAnchor="middle"
+            fill="currentColor"
+            className="text-white dark:text-gray-950 font-mono font-bold text-[9px] select-none stroke-none"
+          >
+            &lt;/&gt;
+          </text>
+
+          {/* Architectural Subsystem Nodes */}
+          {/* 1. Async Event Loop (Top) */}
+          <circle cx="80" cy="28" r="7" className="fill-emerald-500/30 stroke-emerald-400" strokeWidth="1.5" />
+          <circle cx="80" cy="28" r="2.5" className="fill-white dark:fill-emerald-200" />
+
+          {/* 2. Concurrency & Workers (Top-Right) */}
+          <circle cx="128" cy="52" r="7" className="fill-emerald-500/30 stroke-emerald-400" strokeWidth="1.5" />
+          <circle cx="128" cy="52" r="2.5" className="fill-white dark:fill-emerald-200" />
+
+          {/* 3. Cryptography & Ciphers (Bottom-Right) */}
+          <circle cx="128" cy="108" r="7" className="fill-emerald-500/30 stroke-emerald-400" strokeWidth="1.5" />
+          <circle cx="128" cy="108" r="2.5" className="fill-white dark:fill-emerald-200" />
+
+          {/* 4. Raw Sockets & Packet Parsing (Bottom) */}
+          <circle cx="80" cy="132" r="7" className="fill-emerald-500/30 stroke-emerald-400" strokeWidth="1.5" />
+          <circle cx="80" cy="132" r="2.5" className="fill-white dark:fill-emerald-200" />
+
+          {/* 5. Telemetry & WebSockets (Bottom-Left) */}
+          <circle cx="32" cy="108" r="7" className="fill-emerald-500/30 stroke-emerald-400" strokeWidth="1.5" />
+          <circle cx="32" cy="108" r="2.5" className="fill-white dark:fill-emerald-200" />
+
+          {/* 6. Modular Tooling & CLI (Top-Left) */}
+          <circle cx="32" cy="52" r="7" className="fill-emerald-500/30 stroke-emerald-400" strokeWidth="1.5" />
+          <circle cx="32" cy="52" r="2.5" className="fill-white dark:fill-emerald-200" />
+        </svg>
       </div>
 
-      {/* Radial Labels */}
-      {CODE_LABELS.map((label) => (
+      {/* Radial Architectural Labels */}
+      {SOFTWARE_LABELS.map((label) => (
         <span
           key={label.text}
           className="shield-label !text-emerald-600 dark:!text-emerald-400"
