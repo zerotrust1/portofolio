@@ -59,6 +59,10 @@ export default function ProjectsPage() {
       features: ["Guided Meditations", "Progress Tracking", "Customizable Timers", "Offline Access"],
       documentation: [
         {
+          label: "View Demo (YouTube)",
+          url: "https://youtu.be/wqaTrk16KCU?si=kpBtEoqBykAgOwvf",
+        },
+        {
           label: "Source Code (GitHub)",
           url: "https://github.com/zerotrust1/CalmFlow",
         },
@@ -74,6 +78,10 @@ export default function ProjectsPage() {
       link: "https://summarizeitai.vercel.app/",
       features: ["AI-Powered Summarization", "Multiple Formats", "Adjustable Length", "Quick Copy"],
       documentation: [
+        {
+          label: "View Demo (YouTube)",
+          url: "https://youtu.be/umY26Vy3LP0?si=sr8ucTjwLWmq1Qmm",
+        },
         {
           label: "Source Code (GitHub)",
           url: "https://github.com/zerotrust1/Summarizeit",

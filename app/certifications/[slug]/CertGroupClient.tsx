@@ -42,6 +42,11 @@ export default function CertGroupClient({ group }: { group: CertGroup }) {
                         {cert.title}
                       </h4>
                       <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{cert.date}</p>
+                      {cert.credentialId && (
+                        <p className="text-xs text-blue-600 dark:text-blue-400 font-mono mt-1.5">
+                          {cert.credentialId}
+                        </p>
+                      )}
                     </div>
                     <a
                       href={cert.url}

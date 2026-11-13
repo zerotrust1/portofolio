@@ -61,6 +61,10 @@ const projects = [
     features: ["Guided Meditations", "Progress Tracking", "Customizable Timers", "Offline Access"],
     documentation: [
       {
+        label: "View Demo (YouTube)",
+        url: "https://youtu.be/wqaTrk16KCU?si=kpBtEoqBykAgOwvf",
+      },
+      {
         label: "Source Code (GitHub)",
         url: "https://github.com/zerotrust1/CalmFlow",
       },
@@ -76,6 +80,10 @@ const projects = [
     link: "https://summarizeitai.vercel.app/",
     features: ["AI-Powered Summarization", "Multiple Formats", "Adjustable Length", "Quick Copy"],
     documentation: [
+      {
+        label: "View Demo (YouTube)",
+        url: "https://youtu.be/umY26Vy3LP0?si=sr8ucTjwLWmq1Qmm",
+      },
       {
         label: "Source Code (GitHub)",
         url: "https://github.com/zerotrust1/Summarizeit",
@@ -95,7 +103,7 @@ const experiences = [
     type: "Full-time",
     highlights: [
       "Administer and monitor enterprise ISP network infrastructure, routing, switching, and firewall security configurations.",
-      "Configure and audit network security policies, Juniper SRX security zones, NAT rules, and IPsec VPN tunnels to maintain perimeter integrity.",
+      "Configure and audit network security policies, Juniper SRX security zones, NAT rules, and IPsec VPN tunnels.",
       "Perform proactive network traffic analysis, bandwidth monitoring, and packet capture triage (Wireshark) to detect anomalies.",
     ],
   },
@@ -108,7 +116,7 @@ const experiences = [
     highlights: [
       "Conducted authorized vulnerability assessments on municipal web applications and regional Indonesian government platforms.",
       "Discovered and responsibly disclosed critical vulnerabilities (SQL Injection and IDOR), officially verified by portal administrators.",
-      "Developed custom reconnaissance and fuzzing utilities in Python and Go, decreasing manual enumeration time by 60%.",
+      "Developed custom reconnaissance and cryptanalysis utilities in Python and Go, decreasing manual enumeration time by 60%.",
     ],
   },
   {
@@ -235,25 +243,7 @@ export default function Home() {
     },
   };
 
-  // Standalone verified certifications
-  const certifications = [
-    {
-      title: "JNCIA-SEC (Juniper Networks Certified Associate - Security)",
-      issuer: "Juniper Networks",
-      date: "2026",
-      credentialId: "Credential ID: 991865-12052",
-      url: "https://www.juniper.net/us/en/training/certification/certification-tracks/security-track.html",
-    },
-    {
-      title: "Google Cybersecurity Professional Certificate",
-      issuer: "Google / Coursera",
-      date: "2025",
-      credentialId: "Specialization Credential",
-      url: "https://www.coursera.org/account/accomplishments/professional-cert/certificate/8086EVABJ3QT",
-    },
-  ];
-
-  // Social links data (YouTube removed as requested)
+  // Social & platform links (GitHub, LinkedIn, YouTube, Hack The Box)
   const socialLinks = [
     {
       label: "GitHub",
@@ -273,6 +263,24 @@ export default function Home() {
         </svg>
       ),
     },
+    {
+      label: "YouTube",
+      url: "https://youtube.com/@RelDevAnything",
+      icon: (
+        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden>
+          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+        </svg>
+      ),
+    },
+    {
+      label: "Hack The Box",
+      url: "https://app.hackthebox.com",
+      icon: (
+        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden>
+          <path d="M11.996 0a2.82 2.82 0 0 0-1.41.378L2.09 5.272A2.82 2.82 0 0 0 .68 7.714v9.789a2.82 2.82 0 0 0 1.41 2.443l8.496 4.894c.435.252.924.378 1.41.378.487 0 .976-.126 1.41-.378l8.497-4.894a2.82 2.82 0 0 0 1.41-2.443V7.714a2.82 2.82 0 0 0-1.41-2.442L13.407.378A2.82 2.82 0 0 0 11.996 0zm0 2.217a.64.64 0 0 1 .32.086l8.497 4.894a.64.64 0 0 1 .32.555v2.964l-3.328 1.916-5.809-3.344V2.217zm-.64 0v7.071L5.547 12.632 2.22 10.716V7.752a.64.64 0 0 1 .32-.555l8.496-4.894a.64.64 0 0 1 .32-.086zm.64 9.172 5.093 2.932-5.093 2.933-5.093-2.933 5.093-2.932zm-6.768 4.296 5.808 3.344v7.071a.64.64 0 0 1-.32-.086L2.54 21.12a.64.64 0 0 1-.32-.555v-2.964l3.328-1.916zm7.728 0 3.328 1.916v2.964a.64.64 0 0 1-.32.555l-8.497 4.894a.64.64 0 0 1-.32.086v-7.071l5.809-3.344z" />
+        </svg>
+      ),
+    },
   ];
 
   return (
@@ -288,7 +296,7 @@ export default function Home() {
         </Reveal>
 
         <Reveal>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5">
             {socialLinks.map((social) => (
               <a
                 key={social.label}
@@ -296,7 +304,8 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={social.label}
-                className="flex items-center justify-center w-10 h-10 bg-black dark:bg-white text-white dark:text-black rounded-lg hover:scale-110 active:scale-95 transition-transform duration-200"
+                title={social.label}
+                className="flex items-center justify-center w-9 h-9 md:w-10 md:h-10 bg-black dark:bg-white text-white dark:text-black rounded-lg hover:scale-110 active:scale-95 transition-transform duration-200"
               >
                 {social.icon}
               </a>
@@ -310,7 +319,7 @@ export default function Home() {
         <div className="text-center space-y-6 max-w-3xl mx-auto">
           {/* Location Badge */}
           <Reveal>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-100 dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700 text-xs md:text-sm text-gray-700 dark:text-gray-300">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gray-100 dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700 text-xs md:text-sm text-gray-700 dark:text-gray-300">
               <MapPin className="w-3.5 h-3.5 text-blue-500" />
               <span>Indonesia • Available for Remote & On-site</span>
             </div>
@@ -372,67 +381,6 @@ export default function Home() {
               <ShieldDecoration />
             </Reveal>
           )}
-        </div>
-      </section>
-
-      {/* Experience Section (Synced with LinkedIn) */}
-      <section className="w-full px-6 md:px-8 py-20 border-t border-gray-200 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-950/40">
-        <div className="max-w-4xl mx-auto">
-          <Reveal>
-            <div className="flex items-center justify-between mb-12">
-              <div>
-                <h3 className="text-3xl md:text-4xl font-bold text-black dark:text-white">Experience</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                  Professional roles and offensive security background
-                </p>
-              </div>
-              <a
-                href="https://www.linkedin.com/in/fahrelardiansyah/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1 font-medium"
-              >
-                View on LinkedIn <span>↗</span>
-              </a>
-            </div>
-          </Reveal>
-
-          <div className="space-y-6">
-            {experiences.map((exp, index) => (
-              <Reveal key={index} className="block">
-                <div className="p-6 md:p-7 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-black/40 hover:border-gray-400 dark:hover:border-gray-600 transition-all duration-300">
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
-                    <div>
-                      <h4 className="text-xl font-bold text-black dark:text-white flex items-center gap-2">
-                        <Briefcase className="w-4 h-4 text-blue-500" />
-                        {exp.role}
-                      </h4>
-                      <p className="text-base font-semibold text-gray-800 dark:text-gray-200 mt-0.5">
-                        {exp.company}
-                      </p>
-                    </div>
-                    <div className="text-left md:text-right">
-                      <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
-                        {exp.period}
-                      </span>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                        {exp.location} • {exp.type}
-                      </p>
-                    </div>
-                  </div>
-
-                  <ul className="mt-4 space-y-2 text-sm text-gray-600 dark:text-gray-300">
-                    {exp.highlights.map((highlight, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0 mt-2" />
-                        <span className="leading-relaxed">{highlight}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -515,8 +463,67 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Certifications Section */}
-      <section className="w-full px-6 md:px-8 py-20 border-t border-gray-200 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-950/40">
+      {/* Experience Section (Understated & Sleek Minimalist Timeline) */}
+      <section className="w-full px-6 md:px-8 py-20 border-t border-gray-200 dark:border-gray-800">
+        <div className="max-w-4xl mx-auto">
+          <Reveal>
+            <div className="flex items-center justify-between mb-12">
+              <div>
+                <h3 className="text-3xl md:text-4xl font-bold text-black dark:text-white">Experience</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                  Professional roles and offensive security background
+                </p>
+              </div>
+              <a
+                href="https://www.linkedin.com/in/fahrelardiansyah/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1 font-medium"
+              >
+                LinkedIn Profile <span>↗</span>
+              </a>
+            </div>
+          </Reveal>
+
+          {/* Clean Understated Timeline */}
+          <div className="relative border-l border-gray-200 dark:border-gray-800 ml-3 md:ml-4 pl-6 md:pl-8 space-y-10">
+            {experiences.map((exp, index) => (
+              <Reveal key={index} className="relative block">
+                {/* Timeline node dot */}
+                <span className="absolute -left-[31px] md:-left-[39px] top-1.5 w-3 h-3 rounded-full bg-blue-600 ring-4 ring-white dark:ring-black" />
+
+                <div className="space-y-2">
+                  <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-4">
+                    <h4 className="text-lg md:text-xl font-bold text-black dark:text-white flex items-center gap-2">
+                      <Briefcase className="w-4 h-4 text-gray-500 dark:text-gray-400 flex-shrink-0" />
+                      {exp.role}
+                    </h4>
+                    <span className="text-xs font-mono text-gray-500 dark:text-gray-400 flex-shrink-0">
+                      {exp.period}
+                    </span>
+                  </div>
+
+                  <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">
+                    {exp.company} <span className="text-gray-400 dark:text-gray-600 font-normal">• {exp.location} ({exp.type})</span>
+                  </p>
+
+                  <ul className="mt-2 space-y-1.5 text-sm text-gray-600 dark:text-gray-400">
+                    {exp.highlights.map((highlight, idx) => (
+                      <li key={idx} className="flex items-start gap-2">
+                        <span className="w-1 h-1 rounded-full bg-gray-400 dark:bg-gray-600 flex-shrink-0 mt-2" />
+                        <span className="leading-relaxed">{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Licenses & Certifications Section (Unified with Juniper / JNCIA-SEC & Hack The Box) */}
+      <section className="w-full px-6 md:px-8 py-20 border-t border-gray-200 dark:border-gray-800 bg-gray-50/40 dark:bg-gray-950/30">
         <div className="max-w-4xl mx-auto">
           <Reveal>
             <div className="mb-12">
@@ -528,52 +535,41 @@ export default function Home() {
           </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {certifications.map((cert, i) => (
-              <Reveal key={i}>
-                <div className="p-6 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-600 transition-all duration-300 bg-white dark:bg-black/40 h-full flex flex-col justify-between">
-                  <div>
-                    <h4 className="text-lg font-bold text-black dark:text-white">
-                      {cert.title}
-                    </h4>
-                    <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mt-1">
-                      {cert.issuer} • {cert.date}
-                    </p>
-                    <p className="text-xs text-blue-600 dark:text-blue-400 font-mono mt-2">
-                      {cert.credentialId}
-                    </p>
-                  </div>
-                  <div className="mt-5">
-                    <a
-                      href={cert.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block px-4 py-2 text-sm bg-black dark:bg-white text-white dark:text-black rounded-lg hover:opacity-85 transition font-medium"
-                    >
-                      Verify Credential ↗
-                    </a>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-
             {certGroups.map((group) => (
               <Reveal key={group.slug}>
                 <Link href={`/certifications/${group.slug}`}>
                   <div className="p-6 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-600 transition-all duration-300 bg-white dark:bg-black/40 cursor-pointer group h-full flex flex-col justify-between">
                     <div>
-                      <h4 className="text-lg font-bold text-black dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                        {group.title}
-                      </h4>
+                      <div className="flex items-center justify-between gap-2 mb-2">
+                        <h4 className="text-lg font-bold text-black dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                          {group.title}
+                        </h4>
+                        {group.badge && (
+                          <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200">
+                            {group.badge}
+                          </span>
+                        )}
+                      </div>
+
                       <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
                         {group.description}
                       </p>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 font-mono">
-                        {group.certifications.length} {group.certifications.length === 1 ? "credential" : "credentials"}
-                      </p>
+
+                      <div className="mt-4 pt-3 border-t border-gray-100 dark:border-gray-800/80 space-y-1.5">
+                        {group.certifications.map((cert, cIdx) => (
+                          <div key={cIdx} className="text-xs text-gray-700 dark:text-gray-300">
+                            <span className="font-semibold text-black dark:text-white">• {cert.title}</span>
+                            {cert.credentialId && (
+                              <span className="text-blue-600 dark:text-blue-400 font-mono ml-1.5">({cert.credentialId})</span>
+                            )}
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                    <div className="mt-5">
-                      <span className="inline-block px-4 py-2 text-sm bg-gray-100 dark:bg-gray-800 text-black dark:text-white rounded-lg group-hover:bg-black group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black transition font-medium">
-                        Open Catalog →
+
+                    <div className="mt-5 pt-3">
+                      <span className="inline-block px-4 py-2 text-xs md:text-sm bg-gray-100 dark:bg-gray-800 text-black dark:text-white rounded-lg group-hover:bg-black group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black transition font-medium">
+                        Open Catalog & Verify →
                       </span>
                     </div>
                   </div>
